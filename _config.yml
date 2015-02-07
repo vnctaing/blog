@@ -1,0 +1,66 @@
+# SITE CONFIGURATION
+baseurl: "/blog" # the subpath of your site, e.g. /blog/
+url: "http://vnctaing.com" # the base hostname & protocol for your site
+
+# THEME-SPECIFIC CONFIGURATION
+theme:
+  # Meta
+  title: Vincent Taing
+  avatar: pp_croquis.png
+  gravatar: # email md5 hash
+  description: "Coding is cooking" # used by search engines
+  
+  # Header and footer text
+  header_text: >
+     <p>Coding is cooking</p>
+     
+  footer_text: >
+   Cooked with <a href="http://jekyllrb.com">Jekyll</a> and <a href="https://rohanchandra.github.io/project/type/">Type Theme</a>
+  
+  # Icons
+  rss: false
+  email_address: "taing.vincent@gmail.com"
+  behance:
+  bitbucket: 
+  dribbble: "vnctaing"
+  facebook: 
+  flickr: 
+  github: "vnctaing"
+  google_plus: 
+  instagram: 
+  linkedin: "fr.linkedin.com/pub/vincent-taing/50/9b2/711/fr"
+  pinterest: 
+  reddit: 
+  soundcloud: 
+  stack_exchange:  # full URL
+  steam: 
+  tumblr: 
+  twitter: "vnctaing"
+  wordpress: 
+  youtube: 
+  
+  # Scripts
+  google_analytics: # tracking id, e.g. "UA-000000-01"
+  disqus_shortname:
+  
+  # Localization strings
+  str_follow_on: "Follow on"
+  str_rss_follow: "Follow RSS feed"
+  str_email: "Email"
+  str_next: "Next"
+  str_prev: "Prev"
+  str_continue_reading: "Continue reading"
+  
+  # Colors, typography and padding
+  # Open the "_sass > base" folder, and open "_variables.scss"
+
+# PAGINATION
+paginate: 5
+paginate_path: "blog/page:num"
+
+# BUILD SETTINGS
+markdown: kramdown
+highlighter: pygments
+sass:
+  sass_dir: _sass
+  style: :compressed
