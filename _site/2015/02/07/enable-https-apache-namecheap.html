@@ -4,20 +4,20 @@
   <head>
 	<meta charset="utf-8">
 	<title>Enabling HTTPS on Apache server with Namecheap | Vincent Taing</title>
-	<meta name="description" content="Jeykll supports the use of Markdown with inline HTML tags which makes it easier to quickly write posts with Jekyll, without having to worry too much about te...">
+	<meta name="description" content="What’s the difference with HTTP ?HTTPS (Hypertext Transfer Protocol Secure) is built on top of HTTP , the protocols SSL/TLS are reponsible for the encryption...">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<!-- CSS -->
-	<link rel="stylesheet" href="/blog/css/main.css">
+	<link rel="stylesheet" href="/css/main.css">
 	
 	<!--Favicon-->
-	<link rel="shortcut icon" href="/blog/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	
 	<!-- Canonical -->
-	<link rel="canonical" href="http://vnctaing.com/blog/2015/02/07/enable-https-apache-namecheap.html">
+	<link rel="canonical" href="http://blog.vnctaing.com/2015/02/07/enable-https-apache-namecheap.html">
 	
 	<!-- RSS -->
-	<link rel="alternate" type="application/atom+xml" title="Vincent Taing" href="http://vnctaing.com/blog/feed.xml" />
+	<link rel="alternate" type="application/atom+xml" title="Vincent Taing" href="http://blog.vnctaing.com/feed.xml" />
 	
 	<!-- Font Awesome -->
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -27,6 +27,16 @@
 	
 	<!-- Google Analytics -->
 	
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-55136532-1', 'auto');
+	ga('send', 'pageview');
+	</script>
+	
 </head>
 
 
@@ -35,25 +45,19 @@
 
 	<div class="branding">
 		
-		<a href="/blog/">
+		<a href="/">
       <img class="avatar" src="/img/pp_croquis.png" alt=""/>
     </a>
 		
 		
 		<h1 class="site-title">
-			<a href="/blog/">Vincent Taing</a>
+			<a href="/">Vincent Taing</a>
 		</h1>
 	</div>
 	
 	<nav class="site-nav">
 		<ul>
 			
-				
-			
-				
-				<li>
-					<a class="page-link" href="/blog/about/">About</a>
-				</li>
 				
 			
 				
@@ -133,6 +137,7 @@
 
 
 
+			<li><a href="http://vnctaing.com">portfolio</a></li>
 		</ul>
 	</nav>
 	
@@ -142,7 +147,7 @@
     <div class="content">
       <article >
 
-  <header style="background-image: url('/blog/')">
+  <header style="background-image: url('/')">
     <h1 class="title">Enabling HTTPS on Apache server with Namecheap</h1>
     
     <p class="meta">
@@ -152,46 +157,99 @@
   </header>
 
   <section class="post-content">
-    <p>Jeykll supports the use of <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> with inline HTML tags which makes it easier to quickly write posts with Jekyll, without having to worry too much about text formatting. A sample of the formatting follows.</p>
+    <h3 id="whats-the-difference-with-http-">What’s the difference with HTTP ?</h3>
+<p>HTTPS (<em>Hypertext Transfer Protocol Secure</em>) is built on top of HTTP , the protocols SSL/TLS are reponsible for the encryption of the connection. SSL and TLS are two similar protocol for encryption, they provide security over the network. SSL is the predecessor of TLS, recently SSL has found being vulnerable to <a href="http://googleonlinesecurity.blogspot.fr/2014/10/this-poodle-bites-exploiting-ssl-30.html">POODLE attack</a>. </p>
 
-<p>Tables have also been extended from Markdown:</p>
+<p>Having an encrypted connection means that nobody can spy on your connection between the server and the client. An other difference : HTTP uses the port 80 whereas the HTTPS uses the port 443.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>First Header</th>
-      <th>Second Header</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Content Cell</td>
-      <td>Content Cell</td>
-    </tr>
-    <tr>
-      <td>Content Cell</td>
-      <td>Content Cell</td>
-    </tr>
-  </tbody>
-</table>
+<h3 id="why-should-i-activate-https-">Why should I activate HTTPS ?</h3>
+<p>For <strong>security matter</strong>, when your website is dealing with sensible data like password or email, it is strongly recommended to activate the HTTPS mode.</p>
 
-<p>Here’s an example of an image, which is included using Markdown:</p>
+<p><em>Note : HTTPS doesn’t mean your password can not be compromised, it just means nobody can intercept your data on the transport layer.</em> </p>
 
-<p><img src="/img/sample_feature_img_2.png" alt="Geometric pattern with fading gradient" /></p>
+<p><strong>SEO</strong> : Websites that have enable HTTPS are more likely to have a better rank on search engine. Since Google added a preference in its algorithm for sites running HTTPS.  </p>
 
-<p>Highlighting for code in Jekyll is done using Pygments or Rouge. This theme makes use of Pygments by default.</p>
+<hr />
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// count to ten</span>
-<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
-<span class="p">}</span>
+<h3 id="prerequisites-for-this-recipe">Prerequisites for this recipe</h3>
 
-<span class="c1">// count to twenty</span>
-<span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">while</span> <span class="p">(</span><span class="nx">j</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">j</span><span class="o">++</span><span class="p">;</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+<ul>
+  <li>Apache2 server on Linux ( hosted on DigitalOcean )</li>
+</ul>
+
+<hr />
+
+<h4 id="get-a-ssl-certificate">1) Get a SSL certificate</h4>
+
+<p>In order to get your SSL certificate, you got to pick a Certificate Authority (abbreviated by <em>CA</em>). I personnally chose a <a href="https://www.namecheap.com">NameCheap</a> since a one-year SSL certificate is provided with the <a href="https://education.github.com/pack/#namecheap">Github Student Pack</a>. You’ll need to provide Certificate Signing Request (CSR) containing your information and your website adresse, in order to have a CSR this you’ll need to connect on your server and generate a private key:</p>
+
+<pre><code>$ cd /etc/apache2
+$ mkdir ssl
+$ cd ssl
+$ openssl req -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048
+</code></pre>
+
+<h4 id="activate-the-ssl-module">2) Activate the SSL module</h4>
+<pre><code>$ sudo a2ensmod ssl
+$ sudo service apache2 restart
+</code></pre>
+
+<h4 id="install-certificates-on-your-server">3) Install certificates on your server</h4>
+
+<p>Once your CA have sent the certificates, you’ll have to import them on your server. Normally with Comodo if you picked <em>mod_ssl</em>, you will receive two certificates,  : <em>yourdomain</em>.crt and <em>yourdomain</em>.ca-bundle (this one is the Certificate Authority own certificate). </p>
+
+<p>If you use openssl and received 4 files : </p>
+
+<p>+<em>COMODORSADomainValidationSecureServerCA.crt</em> 
++<em>AddTrustExternalCARoot.crt</em> 
++<em>COMODORSAAddTrustCA.crt</em> 
++<em>yourdomain.crt</em> </p>
+
+<p>You’ll have to concatenate these into one file CAcertifcate.ca-bundle</p>
+
+<pre><code>$ cat COMODORSADomainValidationSecureServerCA.crt COMODORSAAddTrustCA.crt AddTrustExternalCARoot &gt; mydomain.ca-bundle
+</code></pre>
+
+<p><em>Note : I had many troubles installing the two certicates, even after creating my ca-bundle because I chose the wrong module. You might want to ask for a new certicate with the correct module ( mod_ssl or openssl ). I re-issue my certificate on my CA’s website with mod_ssl and it did the trick for me.</em></p>
+
+<p>To install your certificate on your server, once you are connected via SSH on your server :</p>
+
+<pre><code>$ cd /etc/apache2/ssl
+$ nano mydomain.ca-bundle 
+#Paste the content of yourdomain.ca-bundle sent by your CA
+$ nano mydomain.crt
+#Paste the content of yourdomain.crt sent by your CA
+</code></pre>
+
+<h4 id="set-up-the-directive">4) Set up the directive</h4>
+
+<p>The next step, you will have to indicate your server where are the certificate :</p>
+
+<pre><code>$ vi /etc/apache2/sites-available/default-ssl.conf
+</code></pre>
+
+<p>And then set : </p>
+
+<pre><code>SSLEngine On
+SSLCertificateChainFile /etc/apache2/ssl/mydomain.ca-bundle
+SSLCertificateFile /etc/apache2/ssl/mydomain.crt
+SSLCertificateKeyFile /etc/apache2/ssl/myserver.key 
+</code></pre>
+
+<h4 id="automatically-redirect-http-to-https">5) Automatically redirect HTTP to HTTPS</h4>
+
+<p>To redirect connection from the port 80 (HTTP) to the port 443 (HTTPS). You can also add at the top of the file </p>
+
+<pre><code>&lt;VirtualHost *:80&gt;
+    ServerName yourdomain.com
+    RewriteEngine On
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [R=301,L]
+&lt;/VirtualHost&gt;
+
+
+$ sudo service apache2 restart
+</code></pre>
+
 
   </section>
   

@@ -8,16 +8,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<!-- CSS -->
-	<link rel="stylesheet" href="/blog/css/main.css">
+	<link rel="stylesheet" href="/css/main.css">
 	
 	<!--Favicon-->
-	<link rel="shortcut icon" href="/blog/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	
 	<!-- Canonical -->
-	<link rel="canonical" href="http://vnctaing.com/blog/">
+	<link rel="canonical" href="http://blog.vnctaing.com/">
 	
 	<!-- RSS -->
-	<link rel="alternate" type="application/atom+xml" title="Vincent Taing" href="http://vnctaing.com/blog/feed.xml" />
+	<link rel="alternate" type="application/atom+xml" title="Vincent Taing" href="http://blog.vnctaing.com/feed.xml" />
 	
 	<!-- Font Awesome -->
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -27,6 +27,16 @@
 	
 	<!-- Google Analytics -->
 	
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-55136532-1', 'auto');
+	ga('send', 'pageview');
+	</script>
+	
 </head>
 
 
@@ -35,25 +45,19 @@
 
 	<div class="branding">
 		
-		<a href="/blog/">
+		<a href="/">
       <img class="avatar" src="/img/pp_croquis.png" alt=""/>
     </a>
 		
 		
 		<h1 class="site-title">
-			<a href="/blog/">Vincent Taing</a>
+			<a href="/">Vincent Taing</a>
 		</h1>
 	</div>
 	
 	<nav class="site-nav">
 		<ul>
 			
-				
-			
-				
-				<li>
-					<a class="page-link" href="/blog/about/">About</a>
-				</li>
 				
 			
 				
@@ -133,6 +137,7 @@
 
 
 
+			<li><a href="http://vnctaing.com">portfolio</a></li>
 		</ul>
 	</nav>
 	
@@ -153,18 +158,19 @@
     
       <header>
         <h1>
-          <a class="post-link" href="/blog/2015/02/07/enable-https-apache-namecheap.html">Enabling HTTPS on Apache server with Namecheap</a>
+          <a class="post-link" href="/2015/02/07/enable-https-apache-namecheap.html">Enabling HTTPS on Apache server with Namecheap</a>
         </h1>
         
         <p class="meta">February 7, 2015</p>
       </header>
 
       <div class="excerpt">
-        <p>Jeykll supports the use of <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> with inline HTML tags which makes it easier to quickly write posts with Jekyll, without having to worry too much about text formatting. A sample of the formatting follows.</p>
+        <h3 id="whats-the-difference-with-http-">What’s the difference with HTTP ?</h3>
+<p>HTTPS (<em>Hypertext Transfer Protocol Secure</em>) is built on top of HTTP , the protocols SSL/TLS are reponsible for the encryption of the connection. SSL and TLS are two similar protocol for encryption, they provide security over the network. SSL is the predecessor of TLS, recently SSL has found being vulnerable to <a href="http://googleonlinesecurity.blogspot.fr/2014/10/this-poodle-bites-exploiting-ssl-30.html">POODLE attack</a>. </p>
 
 
 
-        <a class="button" href="/blog/2015/02/07/enable-https-apache-namecheap.html">Continue reading</a>
+        <a class="button" href="/2015/02/07/enable-https-apache-namecheap.html">Continue reading</a>
       </div>
       
     </div>
