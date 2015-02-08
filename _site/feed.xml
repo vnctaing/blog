@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vincent Taing</title>
-    <atom:link href="http://vnctaing.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <link>http://vnctaing.com/blog/</link>
+    <atom:link href="http://blog.vnctaing.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <link>http://blog.vnctaing.com/</link>
     <description>Coding is cooking</description>
-    <pubDate>Sat, 07 Feb 2015 20:06:15 +0100</pubDate>
+    <pubDate>Sun, 08 Feb 2015 21:03:04 +0100</pubDate>
     
       <item>
         <title>Enabling HTTPS on Apache server with Namecheap</title>
-        <link>http://vnctaing.com/blog/2015/02/07/enable-https-apache-namecheap.html</link>
-        <guid isPermaLink="true">http://vnctaing.com/blog/2015/02/07/enable-https-apache-namecheap.html</guid>
+        <link>http://blog.vnctaing.com/2015/02/07/enable-https-apache-namecheap.html</link>
+        <guid isPermaLink="true">http://blog.vnctaing.com/2015/02/07/enable-https-apache-namecheap.html</guid>
         <description>&lt;p&gt;Jeykll supports the use of &lt;a href=&quot;http://daringfireball.net/projects/markdown/syntax&quot;&gt;Markdown&lt;/a&gt; with inline HTML tags which makes it easier to quickly write posts with Jekyll, without having to worry too much about text formatting. A sample of the formatting follows.&lt;/p&gt;
 
 &lt;p&gt;Tables have also been extended from Markdown:&lt;/p&gt;

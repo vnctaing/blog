@@ -8,16 +8,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<!-- CSS -->
-	<link rel="stylesheet" href="/blog/css/main.css">
+	<link rel="stylesheet" href="/css/main.css">
 	
 	<!--Favicon-->
-	<link rel="shortcut icon" href="/blog/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	
 	<!-- Canonical -->
-	<link rel="canonical" href="http://vnctaing.com/blog/2015/02/07/enable-https-apache-namecheap.html">
+	<link rel="canonical" href="http://blog.vnctaing.com/2015/02/07/enable-https-apache-namecheap.html">
 	
 	<!-- RSS -->
-	<link rel="alternate" type="application/atom+xml" title="Vincent Taing" href="http://vnctaing.com/blog/feed.xml" />
+	<link rel="alternate" type="application/atom+xml" title="Vincent Taing" href="http://blog.vnctaing.com/feed.xml" />
 	
 	<!-- Font Awesome -->
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -27,6 +27,16 @@
 	
 	<!-- Google Analytics -->
 	
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-55136532-1', 'auto');
+	ga('send', 'pageview');
+	</script>
+	
 </head>
 
 
@@ -35,13 +45,13 @@
 
 	<div class="branding">
 		
-		<a href="/blog/">
+		<a href="/">
       <img class="avatar" src="/img/pp_croquis.png" alt=""/>
     </a>
 		
 		
 		<h1 class="site-title">
-			<a href="/blog/">Vincent Taing</a>
+			<a href="/">Vincent Taing</a>
 		</h1>
 	</div>
 	
@@ -52,7 +62,7 @@
 			
 				
 				<li>
-					<a class="page-link" href="/blog/about/">About</a>
+					<a class="page-link" href="/about/">About</a>
 				</li>
 				
 			
@@ -142,7 +152,7 @@
     <div class="content">
       <article >
 
-  <header style="background-image: url('/blog/')">
+  <header style="background-image: url('/')">
     <h1 class="title">Enabling HTTPS on Apache server with Namecheap</h1>
     
     <p class="meta">
