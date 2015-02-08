@@ -41,7 +41,7 @@ theme:
   
   # Scripts
   google_analytics: "UA-55136532-1"
-  disqus_shortname:
+  disqus_shortname: "vnctaing"
   
   # Localization strings
   str_follow_on: "Follow on"

@@ -52,7 +52,7 @@ You'll have to concatenate these into one file CAcertifcate.ca-bundle
 
 	$ cat COMODORSADomainValidationSecureServerCA.crt COMODORSAAddTrustCA.crt AddTrustExternalCARoot > mydomain.ca-bundle
 
-*Note : I had many troubles installing the two certicates, even after creating my ca-bundle because I chose the wrong module. You might want to ask for a new certicate with the correct module ( mod_ssl or openssl ). I re-issue my certificate on my CA's website with mod_ssl and it did the trick for me.*
+*Note : I had many troubles installing the two certificates, even after creating my ca-bundle because I chose the wrong module. You might want to ask for a new certicate with the correct module ( mod_ssl or openssl ). I re-issued my certificate on my CA's website with mod_ssl and it did the trick for me.*
 
 To install your certificate on your server, once you are connected via SSH on your server :
 
@@ -90,7 +90,7 @@ To redirect connection from the port 80 (HTTP) to the port 443 (HTTPS). You can 
 	$ sudo service apache2 restart
 
 
-
+Now your browser should display https instead of http.
 
 
 

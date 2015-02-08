@@ -212,7 +212,7 @@ $ sudo service apache2 restart
 <pre><code>$ cat COMODORSADomainValidationSecureServerCA.crt COMODORSAAddTrustCA.crt AddTrustExternalCARoot &gt; mydomain.ca-bundle
 </code></pre>
 
-<p><em>Note : I had many troubles installing the two certicates, even after creating my ca-bundle because I chose the wrong module. You might want to ask for a new certicate with the correct module ( mod_ssl or openssl ). I re-issue my certificate on my CA’s website with mod_ssl and it did the trick for me.</em></p>
+<p><em>Note : I had many troubles installing the two certificates, even after creating my ca-bundle because I chose the wrong module. You might want to ask for a new certicate with the correct module ( mod_ssl or openssl ). I re-issued my certificate on my CA’s website with mod_ssl and it did the trick for me.</em></p>
 
 <p>To install your certificate on your server, once you are connected via SSH on your server :</p>
 
@@ -252,12 +252,27 @@ SSLCertificateKeyFile /etc/apache2/ssl/myserver.key
 $ sudo service apache2 restart
 </code></pre>
 
+<p>Now your browser should display https instead of http.</p>
+
 
   </section>
   
 </article>
 
 <!-- Disqus -->
+
+<div class="comments">
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+	var disqus_shortname = 'vnctaing'; 
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
 
     </div>
 
