@@ -43,10 +43,10 @@ Once your CA have sent the certificates, you'll have to import them on your serv
 
 If you use openssl and received 4 files : 
 
-+*COMODORSADomainValidationSecureServerCA.crt* 
-+*AddTrustExternalCARoot.crt* 
-+*COMODORSAAddTrustCA.crt* 
-+*yourdomain.crt* 
+* *COMODORSADomainValidationSecureServerCA.crt* 
+* *AddTrustExternalCARoot.crt* 
+* *COMODORSAAddTrustCA.crt* 
+* *yourdomain.crt* 
 
 You'll have to concatenate these into one file CAcertifcate.ca-bundle
 

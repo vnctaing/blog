@@ -5,15 +5,7 @@
     <atom:link href="http://blog.vnctaing.com/feed.xml" rel="self" type="application/rss+xml"/>
     <link>http://blog.vnctaing.com/</link>
     <description>Coding is cooking</description>
-<<<<<<< HEAD
-    <pubDate>Sun, 08 Feb 2015 21:03:56 +0100</pubDate>
-=======
-<<<<<<< Updated upstream
-    <pubDate>Sun, 08 Feb 2015 20:26:34 +0100</pubDate>
-=======
-    <pubDate>Sun, 08 Feb 2015 21:08:21 +0100</pubDate>
->>>>>>> Stashed changes
->>>>>>> master
+    <pubDate>Sun, 08 Feb 2015 21:19:08 +0100</pubDate>
     
       <item>
         <title>Enabling HTTPS on Apache server with Namecheap</title>
@@ -62,10 +54,12 @@ $ sudo service apache2 restart
 
 &lt;p&gt;If you use openssl and received 4 files : &lt;/p&gt;
 
-&lt;p&gt;+&lt;em&gt;COMODORSADomainValidationSecureServerCA.crt&lt;/em&gt; 
-+&lt;em&gt;AddTrustExternalCARoot.crt&lt;/em&gt; 
-+&lt;em&gt;COMODORSAAddTrustCA.crt&lt;/em&gt; 
-+&lt;em&gt;yourdomain.crt&lt;/em&gt; &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;COMODORSADomainValidationSecureServerCA.crt&lt;/em&gt; &lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;AddTrustExternalCARoot.crt&lt;/em&gt; &lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;COMODORSAAddTrustCA.crt&lt;/em&gt; &lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;yourdomain.crt&lt;/em&gt; &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;You’ll have to concatenate these into one file CAcertifcate.ca-bundle&lt;/p&gt;
 
