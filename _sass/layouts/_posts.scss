@@ -47,3 +47,12 @@ header {
     @extend %padding-regular;
   }
 }
+
+
+p > code {
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
+  color: #343642;
+  font-family: "Consolas";
+  padding: 4px;
+}

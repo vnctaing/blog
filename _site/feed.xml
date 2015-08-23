@@ -5,7 +5,258 @@
     <atom:link href="http://blog.vnctaing.com/feed.xml" rel="self" type="application/rss+xml"/>
     <link>http://blog.vnctaing.com/</link>
     <description>Coding is cooking</description>
-    <pubDate>Sun, 23 Aug 2015 16:31:56 +0200</pubDate>
+    <pubDate>Sun, 23 Aug 2015 18:24:46 +0200</pubDate>
+    
+      <item>
+        <title>A quick overview of Angular.js</title>
+        <link>http://blog.vnctaing.com/2015/08/23/angular-overview.html</link>
+        <guid isPermaLink="true">http://blog.vnctaing.com/2015/08/23/angular-overview.html</guid>
+        <description>&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;I’ve been working in a startup called Bandsquare, for 6 months and we used Angular.js in our projects. I’ve learned Angular from scratch. I think I had the time to explore and experiment the principles features in Angular.&lt;/em&gt; &lt;/p&gt;
+
+&lt;h3 id=&quot;classic-side-server--single-page-application&quot;&gt;Classic side-server &amp;amp; Single-Page Application&lt;/h3&gt;
+
+&lt;p&gt;Angular lets you create SPA ( Single Page Application ). If you are already familiar with Single page app you can skip that part. &lt;/p&gt;
+
+&lt;p&gt;Whenever you are browsing classic websites, you are doing the following schema :   &lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You send a http request to a server&lt;/li&gt;
+  &lt;li&gt;This server treat your request while you are waiting for the response&lt;/li&gt;
+  &lt;li&gt;The server responds you by sending the data you requested &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Each time you need new data, you repeat the same schema. This works well and has been working since the beginning of the Web. Very popular programming languages such as Ruby or Python able you to create this kind of web app thanks to their web frameworks. These languages are called &lt;em&gt;synchronous programming languages&lt;/em&gt; you have to have to wait the request to be completed in order to move on to the next task, &lt;/p&gt;
+
+&lt;p&gt;But it presents some flaws : &lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;There are redundacy in the resources that you request, you are asking to the server to render the almost same template again and again, while you only really need the data to change.&lt;/li&gt;
+  &lt;li&gt;On each action, you need to wait the server’s reponse to continue your navigation, which might make you feel like the web app is slow. Especially if you have a bad internet connection or are using your smartphone. &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Single-Page Application&lt;/em&gt; are different, there are still a server and a client of course. But they interact differently, the workload on the server is reduced, indeed : &lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You send a first http request to the server&lt;/li&gt;
+  &lt;li&gt;The server sends you an unique page ( &lt;em&gt;the template&lt;/em&gt; )&lt;/li&gt;
+  &lt;li&gt;Whenever you need new data, the browser is only requesting the data that it needs. The response is then formated in JSON, which is much more lighter. &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The user that is navigating through your website can feel that it is &lt;em&gt;insanely&lt;/em&gt; faster than classic server-side application since the DOM is compiled and live rendered by your browser. It only needs the few bytes of corresponding data that the server provides quickly.
+Angular.js ables you to build single page application.&lt;/p&gt;
+
+&lt;p&gt;Of course there are flaws : &lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The first request is often long since it requests the whole template&lt;/li&gt;
+  &lt;li&gt;Not every browser or computer supports well Javascript, it may take a very long time to compile the JS for old devices.&lt;/li&gt;
+  &lt;li&gt;Currently, the SEO is a big flaw, the robots that index websites doesn’t know how to executes the JavaScript&lt;/li&gt;
+  &lt;li&gt;Many more … &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
+
+&lt;p&gt;Personnally, I like to use &lt;a href=&quot;http://yeoman.io/&quot;&gt;Yeoman&lt;/a&gt;. Yeoman is a tool that let you download generators. These generators scaffold seed app, you don’t need to figure out how to structure your code and find the CDN on the Internet. The interface in the console is very user-friendly, Yeoman asks you which options do you prefer and then generate an empty app for you. &lt;/p&gt;
+
+&lt;p&gt;The Angular team provides a seed app for angular, you can download/clone the repository from &lt;a href=&quot;https://github.com/angular/angular-seed&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;overview-of-angularjs&quot;&gt;Overview of Angular.js&lt;/h2&gt;
+
+&lt;p&gt;Angular is based on a MVC architecture. If you are not familiar with the MVC architecture. I suggest you have a quick read about it and come back then ( &lt;a href=&quot;https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller&quot;&gt;Wikipedia&lt;/a&gt; is perfectly fine ).  Angular might be confusing and surprising at first because it adds weird attributes inside HTML element which are called &lt;strong&gt;directives&lt;/strong&gt; in Angular. But you will get quickly used to Angular’s paradigm and be familiar with the common &lt;strong&gt;directives&lt;/strong&gt;. &lt;/p&gt;
+
+&lt;p&gt;Principles points about Angular :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;It uses the &lt;strong&gt;two-way data binding&lt;/strong&gt;. Which means, the View and the Model ( which contains the data) are automatically sync. If you modify the View, it modifies the Model and inversely. &lt;/li&gt;
+  &lt;li&gt;It divides your app in small components, each logic is associated with its view.&lt;/li&gt;
+  &lt;li&gt;Moreover, having specifics small component with a purpose makes your app easier to test.&lt;/li&gt;
+  &lt;li&gt;Dependency Injection (DI) , enables you to inject dependencies in your component and makes it available to use inside your component. &lt;/li&gt;
+  &lt;li&gt;Directives are very powerful features, it enables you to create component in the DOM that can be used like re-usable and indepedent block.&lt;/li&gt;
+  &lt;li&gt;Angular has its own templating langage, which let you put use interpolate your variables or use logic in your template&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;two-way-data-binding&quot;&gt;Two-way data binding&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Two-way data binding is a fundamental concept in Angular, it automatically sync your data with the view displayed.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If you modify the view, the model is also modified and if you modify the model, the view is also modified. It makes really easy to use a WYSIWYG app like in this fiddle.&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;300&quot; src=&quot;//jsfiddle.net/vnctaing/36twf7qn/1/embedded/html,js,result&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;If you try to type in the first or the third input. You will see that the other element that contained a &lt;strong&gt;directive&lt;/strong&gt; &lt;code&gt;ng-model=&quot;foo&quot;&lt;/code&gt;  are updated by same the value just typed. The elements with are all binded to the property &lt;code&gt;foo&lt;/code&gt;. Angular is automatically listening to changement on each element and magically updates the other elements. &lt;/p&gt;
+
+&lt;h3 id=&quot;controllers&quot;&gt;Controllers&lt;/h3&gt;
+
+&lt;p&gt;Controllers are the logic behind a View. Each view is associated to a controller. To load a controller inside the template you simply declare it inside the element with the directive with &lt;code&gt;ng-controller=&lt;/code&gt;, and everything inside this element will be in the controller scope. The controller will have access to this part of the DOM ( Document Object Model which is every elements displayed, it is basically HTML ). You declare a controller like this : &lt;/p&gt;
+
+&lt;p&gt;my-view.html : &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-app=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;myApp&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt;   &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-controller=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;myCtrl&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt;   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;myCtrl.js :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myApp&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myCtrl&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;ng-app&lt;/code&gt; is a directive to limit and name your angular app, everything inside the ng-app can be accessed with Angular. Here, the name of the app is &lt;code&gt;myApp&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;dependency-injection&quot;&gt;Dependency Injection&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Dependency Injection&lt;/strong&gt; is a software design pattern, that let you declare every dependencies needed a part from your component and makes it available in the component. In Angular you simply declare the name of the component and Angular makes the dependency available for you. Angular is going to parse your function and find the component associate to the parsed parameter.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// firstDependency is a dependency that I use somewhere else in the app&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myApp&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myCtrl&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;firstDependency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;secondDependency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// I can use firstDependency.doSomething() since it&amp;#39;s injected in the controller&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;5&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Note : If you minify your javascript ( and you should ), there is a dirty hack to do. You have to declare your dependencies like this &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Minification is the process of removing all unnecessary characters from source code without changing its functionality&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myApp&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myCtrl&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;firstDependency&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;secondDependency&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt;    &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;firstDependency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;secondDependency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt;      
+&lt;span class=&quot;lineno&quot;&gt;5&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;]})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;That is because in order to save space, minifiers change the name of function params like this :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myApp&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;c&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;//  a.doSomething() =&amp;gt; undefined, there is no dependency called &amp;#39;a&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;by declaring dependencies in an array, it forces the minifier to not change the name of the params and keep the Dependency Injection working.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-scope-object&quot;&gt;The $scope object&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;$scope&lt;/code&gt; is fundamental in Angular 1.X, it is an injectable object. The view access to the data via &lt;code&gt;$scope&lt;/code&gt;. Whenever you try to interpolate something with the double curly braces &lt;code&gt;{{ }}&lt;/code&gt;. Angular is going to look in &lt;code&gt;$scope&lt;/code&gt; properties.&lt;/p&gt;
+
+&lt;p&gt;myCtrl.js : &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myApp&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myCtrl&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt;     &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;John&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// $scope.name is accessible from the view&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;my-view.html :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-app=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;myApp&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-controller=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;MyCtrl&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt;       &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;{{name}}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- displays &amp;quot;John&amp;quot; --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;5&lt;/span&gt;   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;services&quot;&gt;Services&lt;/h3&gt;
+
+&lt;p&gt;Service are objects that lets you share code across your app. You can &lt;em&gt;inject&lt;/em&gt; services into controllers.&lt;/p&gt;
+
+&lt;p&gt;You are more likely to use services when you want to re-use function across your app, i.e : you probably want to use services to fetch data from an API.&lt;/p&gt;
+
+&lt;p&gt;You can create a service with a “factory”. A factory is a way to create services,  Like this : &lt;/p&gt;
+
+&lt;p&gt;myService.js :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myApp&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myService&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt;       &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sayHi&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt;         &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Hi !&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt;       &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt;       &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sayBye&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt;         &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Bye&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt;       &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt;     
+&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt;     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt;       &lt;span class=&quot;nx&quot;&gt;sayHi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sayHi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt;       &lt;span class=&quot;nx&quot;&gt;sayBye&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sayBye&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;13&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+&lt;span class=&quot;lineno&quot;&gt;14&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You can then use them into differents controller &lt;/p&gt;
+
+&lt;p&gt;mySecondCtrl.js : &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myApp&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// myService is &amp;quot;injected&amp;quot; in mySecondCtrl&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;mySecondCtrl&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt;     &lt;span class=&quot;nx&quot;&gt;myService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sayHi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// fires sayHi() in myService&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;5&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;myCtrl.js : &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myApp&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// myService is &amp;quot;injected&amp;quot; in mySecondCtrl&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myCtrl&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt;     &lt;span class=&quot;nx&quot;&gt;myService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sayBye&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// fires sayBye() in myService&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;5&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;directives&quot;&gt;Directives&lt;/h3&gt;
+
+&lt;p&gt;Angular provides many built-in directives, you will have to discover them through &lt;a href=&quot;https://docs.angularjs.org/api&quot;&gt;Angular Offical Documentation&lt;/a&gt; and learn how they work. &lt;/p&gt;
+
+&lt;p&gt;An example of commonly used directive is &lt;code&gt;ng-repeat&lt;/code&gt;, if you want to iterate and display each elements of an array. You should use the directive &lt;code&gt;ng-repeat&lt;/code&gt; that let you iterate through an array attached to &lt;code&gt;$scope.collection&lt;/code&gt;. The syntax is : &lt;code&gt;ng-repeat=&quot;item in collection&quot;&lt;/code&gt; . Inside the element that contains the directive &lt;code&gt;ng-repeat&lt;/code&gt; let you access &lt;code&gt;item&lt;/code&gt;  like in the following fiddle :&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;300&quot; src=&quot;//jsfiddle.net/vnctaing/wambs075/4/embedded/html,js,result&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;custom-directives&quot;&gt;Custom Directives&lt;/h3&gt;
+
+&lt;p&gt;Last but not least, in Angular you can create your own directives. It lets you create small, independant and re-usable components. Basically you will able to create a custom tag &lt;code&gt;&amp;lt;sign-up-form&amp;gt;&amp;lt;/sign-up-form&amp;gt;&lt;/code&gt; and display it anywhere in your app. This makes the HTML more expressive. You will have to name your directive in &lt;a href=&quot;https://en.wikipedia.org/wiki/CamelCase&quot;&gt;camelCase&lt;/a&gt; , but you will have to call it in your template in &lt;a href=&quot;https://fr.wikipedia.org/wiki/Snake_case&quot;&gt;snake-case&lt;/a&gt;.
+To create a custom directive :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myApp&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;directive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myDirective&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt;     &lt;span class=&quot;nx&quot;&gt;restrict&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;E&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// E stand for element, it will let you create &amp;lt;custom-element&amp;gt;&amp;lt;/custom-element&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;// A stands for attributes, it will let you create &amp;lt;div custom-attributes&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt;     &lt;span class=&quot;nx&quot;&gt;templateUrl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;path/to/your/template.html&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt;     &lt;span class=&quot;nx&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;// put logic in here. i.e : &lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt;       &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Foobar&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// name will be available inside the directive&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt;     &lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// can be true, false or {}. &lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;13&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;// Let you set up if your directive has access to his parents scope.&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;14&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;// For now, set it to true, once you will be familiar with creating custom directive&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;15&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;// I sugggest you to read this very good article about scope :&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;16&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;// http://www.undefinednull.com/2014/02/11/mastering-the-scope-of-a-directive-in-angularjs/&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;17&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;18&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;19&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Once you created your directive you will be able to call it in your template : &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;my-directive&amp;gt;&amp;lt;/my-directive&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Two way data binding is the synchronisation between the view and the $scope.&lt;/li&gt;
+  &lt;li&gt;Controller are the logic behind the view and associate data to the $scope object&lt;/li&gt;
+  &lt;li&gt;$scope object is what let you access data from your template&lt;/li&gt;
+  &lt;li&gt;Service lets you share code globally across your app&lt;/li&gt;
+  &lt;li&gt;Directives are powerful component inside the template that be used for anything&lt;/li&gt;
+  &lt;li&gt;Dependy Injection is a magically handled by Angular for resolving dependency&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I wanted to describe briefly the features that I judged fundamental, Angular comes with many more features. I recommend you to follow the very good &lt;a href=&quot;https://docs.angularjs.org/api&quot;&gt;Angular&lt;/a&gt; doc to know more about them. I hope this helped you to have an overview of Angular.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 23 Aug 2015 00:00:00 +0200</pubDate>
+      </item>
     
       <item>
         <title>Enabling HTTPS on Apache server with Namecheap</title>
@@ -37,16 +288,19 @@
 
 &lt;p&gt;In order to get your SSL certificate, you got to pick a Certificate Authority (abbreviated by &lt;em&gt;CA&lt;/em&gt;). I personnally chose a &lt;a href=&quot;https://www.namecheap.com&quot;&gt;NameCheap&lt;/a&gt; since a one-year SSL certificate is provided with the &lt;a href=&quot;https://education.github.com/pack/#namecheap&quot;&gt;Github Student Pack&lt;/a&gt;. You’ll need to provide Certificate Signing Request (CSR) containing your information and your website adresse, in order to have a CSR this you’ll need to connect on your server and generate a private key:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ cd /etc/apache2
-$ mkdir ssl
-$ cd ssl
-$ openssl req -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;
+	$ cd /etc/apache2
+	$ mkdir ssl
+	$ cd ssl
+	$ openssl req -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048
+&lt;/code&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;activate-the-ssl-module&quot;&gt;2) Activate the SSL module&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo a2ensmod ssl
-$ sudo service apache2 restart
-&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;
+	$ sudo a2ensmod ssl
+	$ sudo service apache2 restart
+&lt;/code&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;install-certificates-on-your-server&quot;&gt;3) Install certificates on your server&lt;/h4&gt;
 
@@ -54,55 +308,59 @@ $ sudo service apache2 restart
 
 &lt;p&gt;If you use openssl and received 4 files : &lt;/p&gt;
 
-&lt;p&gt;+&lt;em&gt;COMODORSADomainValidationSecureServerCA.crt&lt;/em&gt; 
-+&lt;em&gt;AddTrustExternalCARoot.crt&lt;/em&gt; 
-+&lt;em&gt;COMODORSAAddTrustCA.crt&lt;/em&gt; 
-+&lt;em&gt;yourdomain.crt&lt;/em&gt; &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;COMODORSADomainValidationSecureServerCA.crt&lt;/em&gt; &lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;AddTrustExternalCARoot.crt&lt;/em&gt; &lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;COMODORSAAddTrustCA.crt&lt;/em&gt; &lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;yourdomain.crt&lt;/em&gt; &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;You’ll have to concatenate these into one file CAcertifcate.ca-bundle&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ cat COMODORSADomainValidationSecureServerCA.crt COMODORSAAddTrustCA.crt AddTrustExternalCARoot &amp;gt; mydomain.ca-bundle
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;$ cat COMODORSADomainValidationSecureServerCA.crt COMODORSAAddTrustCA.crt AddTrustExternalCARoot &amp;gt; mydomain.ca-bundle&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Note : I had many troubles installing the two certicates, even after creating my ca-bundle because I chose the wrong module. You might want to ask for a new certicate with the correct module ( mod_ssl or openssl ). I re-issue my certificate on my CA’s website with mod_ssl and it did the trick for me.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note : I had many troubles installing the two certificates, even after creating my ca-bundle because I chose the wrong module. You might want to ask for a new certicate with the correct module ( mod_ssl or openssl ). I re-issued my certificate on my CA’s website with mod_ssl and it did the trick for me.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;To install your certificate on your server, once you are connected via SSH on your server :&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ cd /etc/apache2/ssl
-$ nano mydomain.ca-bundle 
-#Paste the content of yourdomain.ca-bundle sent by your CA
-$ nano mydomain.crt
-#Paste the content of yourdomain.crt sent by your CA
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;
+	$ cd /etc/apache2/ssl
+	$ nano mydomain.ca-bundle 
+	#Paste the content of yourdomain.ca-bundle sent by your CA
+	$ nano mydomain.crt
+	#Paste the content of yourdomain.crt sent by your CA
+&lt;/code&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;set-up-the-directive&quot;&gt;4) Set up the directive&lt;/h4&gt;
 
 &lt;p&gt;The next step, you will have to indicate your server where are the certificate :&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ vi /etc/apache2/sites-available/default-ssl.conf
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;$ vi /etc/apache2/sites-available/default-ssl.conf&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;And then set : &lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;SSLEngine On
-SSLCertificateChainFile /etc/apache2/ssl/mydomain.ca-bundle
-SSLCertificateFile /etc/apache2/ssl/mydomain.crt
-SSLCertificateKeyFile /etc/apache2/ssl/myserver.key 
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;
+	SSLEngine On
+	SSLCertificateChainFile /etc/apache2/ssl/mydomain.ca-bundle
+	SSLCertificateFile /etc/apache2/ssl/mydomain.crt
+	SSLCertificateKeyFile /etc/apache2/ssl/myserver.key 
+&lt;/code&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;automatically-redirect-http-to-https&quot;&gt;5) Automatically redirect HTTP to HTTPS&lt;/h4&gt;
 
 &lt;p&gt;To redirect connection from the port 80 (HTTP) to the port 443 (HTTPS). You can also add at the top of the file &lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;VirtualHost *:80&amp;gt;
-    ServerName yourdomain.com
-    RewriteEngine On
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [R=301,L]
-&amp;lt;/VirtualHost&amp;gt;
+&lt;p&gt;&lt;code&gt;
+	&amp;lt;VirtualHost *:80&amp;gt;
+        ServerName yourdomain.com
+        RewriteEngine On
+        RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [R=301,L]
+	&amp;lt;/VirtualHost&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
 
+&lt;p&gt;&lt;code&gt;$ sudo service apache2 restart&lt;/code&gt;&lt;/p&gt;
 
-$ sudo service apache2 restart
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now your browser should display https instead of http.&lt;/p&gt;
 
 </description>
         <pubDate>Sat, 07 Feb 2015 00:00:00 +0100</pubDate>

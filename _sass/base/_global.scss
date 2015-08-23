@@ -14,6 +14,11 @@ html {
 ::-moz-selection {
   background: $selection-color;
 }
+@font-face{
+  font-family: "Gotham Rounded";
+  src: url(../fonts/gotham.otf);
+}
+
 body {
   color: $text-color;
   font-family: $font-family;
