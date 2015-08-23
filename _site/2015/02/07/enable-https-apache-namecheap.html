@@ -24,6 +24,9 @@
 	
 	<!-- Google Fonts -->
 	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+
+	<script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 	
 	<!-- Google Analytics -->
 	
@@ -183,16 +186,19 @@
 
 <p>In order to get your SSL certificate, you got to pick a Certificate Authority (abbreviated by <em>CA</em>). I personnally chose a <a href="https://www.namecheap.com">NameCheap</a> since a one-year SSL certificate is provided with the <a href="https://education.github.com/pack/#namecheap">Github Student Pack</a>. You’ll need to provide Certificate Signing Request (CSR) containing your information and your website adresse, in order to have a CSR this you’ll need to connect on your server and generate a private key:</p>
 
-<pre><code>$ cd /etc/apache2
-$ mkdir ssl
-$ cd ssl
-$ openssl req -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048
-</code></pre>
+<p><code>
+	$ cd /etc/apache2
+	$ mkdir ssl
+	$ cd ssl
+	$ openssl req -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048
+</code></p>
 
 <h4 id="activate-the-ssl-module">2) Activate the SSL module</h4>
-<pre><code>$ sudo a2ensmod ssl
-$ sudo service apache2 restart
-</code></pre>
+
+<p><code>
+	$ sudo a2ensmod ssl
+	$ sudo service apache2 restart
+</code></p>
 
 <h4 id="install-certificates-on-your-server">3) Install certificates on your server</h4>
 
@@ -209,48 +215,48 @@ $ sudo service apache2 restart
 
 <p>You’ll have to concatenate these into one file CAcertifcate.ca-bundle</p>
 
-<pre><code>$ cat COMODORSADomainValidationSecureServerCA.crt COMODORSAAddTrustCA.crt AddTrustExternalCARoot &gt; mydomain.ca-bundle
-</code></pre>
+<p><code>$ cat COMODORSADomainValidationSecureServerCA.crt COMODORSAAddTrustCA.crt AddTrustExternalCARoot &gt; mydomain.ca-bundle</code></p>
 
 <p><em>Note : I had many troubles installing the two certificates, even after creating my ca-bundle because I chose the wrong module. You might want to ask for a new certicate with the correct module ( mod_ssl or openssl ). I re-issued my certificate on my CA’s website with mod_ssl and it did the trick for me.</em></p>
 
 <p>To install your certificate on your server, once you are connected via SSH on your server :</p>
 
-<pre><code>$ cd /etc/apache2/ssl
-$ nano mydomain.ca-bundle 
-#Paste the content of yourdomain.ca-bundle sent by your CA
-$ nano mydomain.crt
-#Paste the content of yourdomain.crt sent by your CA
-</code></pre>
+<p><code>
+	$ cd /etc/apache2/ssl
+	$ nano mydomain.ca-bundle 
+	#Paste the content of yourdomain.ca-bundle sent by your CA
+	$ nano mydomain.crt
+	#Paste the content of yourdomain.crt sent by your CA
+</code></p>
 
 <h4 id="set-up-the-directive">4) Set up the directive</h4>
 
 <p>The next step, you will have to indicate your server where are the certificate :</p>
 
-<pre><code>$ vi /etc/apache2/sites-available/default-ssl.conf
-</code></pre>
+<p><code>$ vi /etc/apache2/sites-available/default-ssl.conf</code></p>
 
 <p>And then set : </p>
 
-<pre><code>SSLEngine On
-SSLCertificateChainFile /etc/apache2/ssl/mydomain.ca-bundle
-SSLCertificateFile /etc/apache2/ssl/mydomain.crt
-SSLCertificateKeyFile /etc/apache2/ssl/myserver.key 
-</code></pre>
+<p><code>
+	SSLEngine On
+	SSLCertificateChainFile /etc/apache2/ssl/mydomain.ca-bundle
+	SSLCertificateFile /etc/apache2/ssl/mydomain.crt
+	SSLCertificateKeyFile /etc/apache2/ssl/myserver.key 
+</code></p>
 
 <h4 id="automatically-redirect-http-to-https">5) Automatically redirect HTTP to HTTPS</h4>
 
 <p>To redirect connection from the port 80 (HTTP) to the port 443 (HTTPS). You can also add at the top of the file </p>
 
-<pre><code>&lt;VirtualHost *:80&gt;
-    ServerName yourdomain.com
-    RewriteEngine On
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [R=301,L]
-&lt;/VirtualHost&gt;
+<p><code>
+	&lt;VirtualHost *:80&gt;
+        ServerName yourdomain.com
+        RewriteEngine On
+        RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [R=301,L]
+	&lt;/VirtualHost&gt;
+</code></p>
 
-
-$ sudo service apache2 restart
-</code></pre>
+<p><code>$ sudo service apache2 restart</code></p>
 
 <p>Now your browser should display https instead of http.</p>
 
