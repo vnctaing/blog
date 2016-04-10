@@ -1,3 +1,9 @@
+---
+layout: post
+title: React.js: just an another hype JavaScript framework ?
+---
+
+
 *React v.15.x has been just released (cuz fuck semver, we are Facebook.). I saw an opportunity to explain what is React. Few months back, I started programming and heard about React. I asked on Reddit : [Why React is awesome](https://www.reddit.com/r/javascript/comments/3hs4io/why_react_is_awesome/).*
 
 # React.js: just an another hype JavaScript framework ? written by a junior dev
