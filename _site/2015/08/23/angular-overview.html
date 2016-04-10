@@ -4,7 +4,7 @@
   <head>
 	<meta charset="utf-8">
 	<title>A quick overview of Angular.js | Vincent Taing</title>
-	<meta name="description" content="IntroductionI’ve been working in a startup called Bandsquare, for 6 months and we used Angular.js in our projects. I’ve learned Angular from scratch. I think...">
+	<meta name="description" content="IntroductionI&#39;ve been working in a startup called Bandsquare, for 6 months and we used Angular.js in our projects. I&#39;ve learned Angular from scratch....">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<!-- CSS -->
@@ -158,19 +158,20 @@
   </header>
 
   <section class="post-content">
-    <h2 id="introduction">Introduction</h2>
-<p><em>I’ve been working in a startup called Bandsquare, for 6 months and we used Angular.js in our projects. I’ve learned Angular from scratch. I think I had the time to explore and experiment the principles features in Angular.</em> </p>
+    <h2>Introduction</h2>
 
-<h3 id="classic-side-server--single-page-application">Classic side-server &amp; Single-Page Application</h3>
+<p><em>I&#39;ve been working in a startup called Bandsquare, for 6 months and we used Angular.js in our projects. I&#39;ve learned Angular from scratch. I think I had the time to explore and experiment the principles features in Angular.</em> </p>
+
+<h3>Classic side-server &amp; Single-Page Application</h3>
 
 <p>Angular lets you create SPA ( Single Page Application ). If you are already familiar with Single page app you can skip that part. </p>
 
 <p>Whenever you are browsing classic websites, you are doing the following schema :   </p>
 
 <ul>
-  <li>You send a http request to a server</li>
-  <li>This server treat your request while you are waiting for the response</li>
-  <li>The server responds you by sending the data you requested </li>
+<li>You send a http request to a server</li>
+<li>This server treat your request while you are waiting for the response</li>
+<li>The server responds you by sending the data you requested </li>
 </ul>
 
 <p>Each time you need new data, you repeat the same schema. This works well and has been working since the beginning of the Web. Very popular programming languages such as Ruby or Python able you to create this kind of web app thanks to their web frameworks. These languages are called <em>synchronous programming languages</em> you have to have to wait the request to be completed in order to move on to the next task, </p>
@@ -178,16 +179,16 @@
 <p>But it presents some flaws : </p>
 
 <ul>
-  <li>There are redundacy in the resources that you request, you are asking to the server to render the almost same template again and again, while you only really need the data to change.</li>
-  <li>On each action, you need to wait the server’s reponse to continue your navigation, which might make you feel like the web app is slow. Especially if you have a bad internet connection or are using your smartphone. </li>
+<li>There are redundacy in the resources that you request, you are asking to the server to render the almost same template again and again, while you only really need the data to change.</li>
+<li>On each action, you need to wait the server&#39;s reponse to continue your navigation, which might make you feel like the web app is slow. Especially if you have a bad internet connection or are using your smartphone. </li>
 </ul>
 
 <p><em>Single-Page Application</em> are different, there are still a server and a client of course. But they interact differently, the workload on the server is reduced, indeed : </p>
 
 <ul>
-  <li>You send a first http request to the server</li>
-  <li>The server sends you an unique page ( <em>the template</em> )</li>
-  <li>Whenever you need new data, the browser is only requesting the data that it needs. The response is then formated in JSON, which is much more lighter. </li>
+<li>You send a first http request to the server</li>
+<li>The server sends you an unique page ( <em>the template</em> )</li>
+<li>Whenever you need new data, the browser is only requesting the data that it needs. The response is then formated in JSON, which is much more lighter. </li>
 </ul>
 
 <p>The user that is navigating through your website can feel that it is <em>insanely</em> faster than classic server-side application since the DOM is compiled and live rendered by your browser. It only needs the few bytes of corresponding data that the server provides quickly.
@@ -196,208 +197,196 @@ Angular.js ables you to build single page application.</p>
 <p>Of course there are flaws : </p>
 
 <ul>
-  <li>The first request is often long since it requests the whole template</li>
-  <li>Not every browser or computer supports well Javascript, it may take a very long time to compile the JS for old devices.</li>
-  <li>Currently, the SEO is a big flaw, the robots that index websites doesn’t know how to executes the JavaScript</li>
-  <li>Many more … </li>
+<li>The first request is often long since it requests the whole template</li>
+<li>Not every browser or computer supports well Javascript, it may take a very long time to compile the JS for old devices.</li>
+<li>Currently, the SEO is a big flaw, the robots that index websites doesn&#39;t know how to executes the JavaScript</li>
+<li>Many more ... </li>
 </ul>
 
-<hr />
+<hr>
 
-<h2 id="installation">Installation</h2>
+<h2>Installation</h2>
 
-<p>Personnally, I like to use <a href="http://yeoman.io/">Yeoman</a>. Yeoman is a tool that let you download generators. These generators scaffold seed app, you don’t need to figure out how to structure your code and find the CDN on the Internet. The interface in the console is very user-friendly, Yeoman asks you which options do you prefer and then generate an empty app for you. </p>
+<p>Personnally, I like to use <a href="http://yeoman.io/">Yeoman</a>. Yeoman is a tool that let you download generators. These generators scaffold seed app, you don&#39;t need to figure out how to structure your code and find the CDN on the Internet. The interface in the console is very user-friendly, Yeoman asks you which options do you prefer and then generate an empty app for you. </p>
 
 <p>The Angular team provides a seed app for angular, you can download/clone the repository from <a href="https://github.com/angular/angular-seed">Github</a></p>
 
-<h2 id="overview-of-angularjs">Overview of Angular.js</h2>
+<h2>Overview of Angular.js</h2>
 
-<p>Angular is based on a MVC architecture. If you are not familiar with the MVC architecture. I suggest you have a quick read about it and come back then ( <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">Wikipedia</a> is perfectly fine ).  Angular might be confusing and surprising at first because it adds weird attributes inside HTML element which are called <strong>directives</strong> in Angular. But you will get quickly used to Angular’s paradigm and be familiar with the common <strong>directives</strong>. </p>
+<p>Angular is based on a MVC architecture. If you are not familiar with the MVC architecture. I suggest you have a quick read about it and come back then ( <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">Wikipedia</a> is perfectly fine ).  Angular might be confusing and surprising at first because it adds weird attributes inside HTML element which are called <strong>directives</strong> in Angular. But you will get quickly used to Angular&#39;s paradigm and be familiar with the common <strong>directives</strong>. </p>
 
 <p>Principles points about Angular :</p>
 
 <ul>
-  <li>It uses the <strong>two-way data binding</strong>. Which means, the View and the Model ( which contains the data) are automatically sync. If you modify the View, it modifies the Model and inversely. </li>
-  <li>It divides your app in small components, each logic is associated with its view.</li>
-  <li>Moreover, having specifics small component with a purpose makes your app easier to test.</li>
-  <li>Dependency Injection (DI) , enables you to inject dependencies in your component and makes it available to use inside your component. </li>
-  <li>Directives are very powerful features, it enables you to create component in the DOM that can be used like re-usable and indepedent block.</li>
-  <li>Angular has its own templating langage, which let you put use interpolate your variables or use logic in your template</li>
+<li>It uses the <strong>two-way data binding</strong>. Which means, the View and the Model ( which contains the data) are automatically sync. If you modify the View, it modifies the Model and inversely. </li>
+<li>It divides your app in small components, each logic is associated with its view.</li>
+<li>Moreover, having specifics small component with a purpose makes your app easier to test.</li>
+<li>Dependency Injection (DI) , enables you to inject dependencies in your component and makes it available to use inside your component. </li>
+<li>Directives are very powerful features, it enables you to create component in the DOM that can be used like re-usable and indepedent block.</li>
+<li>Angular has its own templating langage, which let you put use interpolate your variables or use logic in your template</li>
 </ul>
 
-<h3 id="two-way-data-binding">Two-way data binding</h3>
+<h3>Two-way data binding</h3>
 
 <blockquote>
-  <p>Two-way data binding is a fundamental concept in Angular, it automatically sync your data with the view displayed.</p>
+<p>Two-way data binding is a fundamental concept in Angular, it automatically sync your data with the view displayed.</p>
 </blockquote>
 
 <p>If you modify the view, the model is also modified and if you modify the model, the view is also modified. It makes really easy to use a WYSIWYG app like in this fiddle.</p>
 
-<iframe width="100%" height="300" src="//jsfiddle.net/vnctaing/36twf7qn/1/embedded/html,js,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<p><iframe width="100%" height="300" src="//jsfiddle.net/vnctaing/36twf7qn/1/embedded/html,js,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe></p>
 
-<p>If you try to type in the first or the third input. You will see that the other element that contained a <strong>directive</strong> <code>ng-model="foo"</code>  are updated by same the value just typed. The elements with are all binded to the property <code>foo</code>. Angular is automatically listening to changement on each element and magically updates the other elements. </p>
+<p>If you try to type in the first or the third input. You will see that the other element that contained a <strong>directive</strong> <code>ng-model=&quot;foo&quot;</code>  are updated by same the value just typed. The elements with are all binded to the property <code>foo</code>. Angular is automatically listening to changement on each element and magically updates the other elements. </p>
 
-<h3 id="controllers">Controllers</h3>
+<h3>Controllers</h3>
 
 <p>Controllers are the logic behind a View. Each view is associated to a controller. To load a controller inside the template you simply declare it inside the element with the directive with <code>ng-controller=</code>, and everything inside this element will be in the controller scope. The controller will have access to this part of the DOM ( Document Object Model which is every elements displayed, it is basically HTML ). You declare a controller like this : </p>
 
 <p>my-view.html : </p>
-
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno">1</span> <span class="nt">&lt;html</span> <span class="na">ng-app=</span><span class="s">&quot;myApp&quot;</span><span class="nt">&gt;</span>
-<span class="lineno">2</span>   <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&quot;myCtrl&quot;</span><span class="nt">&gt;</span>
-<span class="lineno">3</span>   <span class="nt">&lt;/div&gt;</span>
-<span class="lineno">4</span> <span class="nt">&lt;/html&gt;</span></code></pre></div>
-
+<div class="highlight"><pre><code class="language-html" data-lang="html">  <span class="nt">&lt;html</span> <span class="na">ng-app=</span><span class="s">"myApp"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">"myCtrl"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
 <p>myCtrl.js :</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myApp'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'myCtrl'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">)</span>
-<span class="lineno">2</span>   <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;myCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-<span class="lineno">3</span> 
-<span class="lineno">4</span> <span class="p">});</span></code></pre></div>
-
+  <span class="p">});</span>
+</code></pre></div>
 <p><code>ng-app</code> is a directive to limit and name your angular app, everything inside the ng-app can be accessed with Angular. Here, the name of the app is <code>myApp</code>.</p>
 
-<h3 id="dependency-injection">Dependency Injection</h3>
+<h3>Dependency Injection</h3>
 
 <blockquote>
-  <p><strong>Dependency Injection</strong> is a software design pattern, that let you declare every dependencies needed a part from your component and makes it available in the component. In Angular you simply declare the name of the component and Angular makes the dependency available for you. Angular is going to parse your function and find the component associate to the parsed parameter.</p>
+<p><strong>Dependency Injection</strong> is a software design pattern, that let you declare every dependencies needed a part from your component and makes it available in the component. In Angular you simply declare the name of the component and Angular makes the dependency available for you. Angular is going to parse your function and find the component associate to the parsed parameter.</p>
 </blockquote>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="c1">// firstDependency is a dependency that I use somewhere else in the app</span>
-<span class="lineno">2</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">)</span>
-<span class="lineno">3</span>   <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;myCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">firstDependency</span><span class="p">,</span><span class="nx">secondDependency</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">4</span>    <span class="c1">// I can use firstDependency.doSomething() since it&#39;s injected in the controller</span>
-<span class="lineno">5</span>   <span class="p">});</span></code></pre></div>
-
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// firstDependency is a dependency that I use somewhere else in the app</span>
+<span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myApp'</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'myCtrl'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">firstDependency</span><span class="p">,</span><span class="nx">secondDependency</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// I can use firstDependency.doSomething() since it's injected in the controller</span>
+  <span class="p">});</span>
+</code></pre></div>
 <p>Note : If you minify your javascript ( and you should ), there is a dirty hack to do. You have to declare your dependencies like this </p>
 
 <blockquote>
-  <p>Minification is the process of removing all unnecessary characters from source code without changing its functionality</p>
+<p>Minification is the process of removing all unnecessary characters from source code without changing its functionality</p>
 </blockquote>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myApp'</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'myCtrl'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'firstDependency'</span><span class="p">,</span> <span class="s1">'secondDependency'</span><span class="p">,</span>
+   <span class="kd">function</span> <span class="p">(</span><span class="nx">firstDependency</span><span class="p">,</span><span class="nx">secondDependency</span><span class="p">)</span> <span class="p">{</span>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">)</span>
-<span class="lineno">2</span>   <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;myCtrl&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;firstDependency&#39;</span><span class="p">,</span> <span class="s1">&#39;secondDependency&#39;</span><span class="p">,</span>
-<span class="lineno">3</span>    <span class="kd">function</span> <span class="p">(</span><span class="nx">firstDependency</span><span class="p">,</span><span class="nx">secondDependency</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">4</span>      
-<span class="lineno">5</span>   <span class="p">]})</span></code></pre></div>
-
+  <span class="p">]})</span>
+</code></pre></div>
 <p>That is because in order to save space, minifiers change the name of function params like this :</p>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">)</span>
-<span class="lineno">2</span>   <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">3</span>    <span class="c1">//  a.doSomething() =&gt; undefined, there is no dependency called &#39;a&#39;</span>
-<span class="lineno">4</span>   <span class="p">});</span></code></pre></div>
-
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myApp'</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'c'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">//  a.doSomething() =&gt; undefined, there is no dependency called 'a'</span>
+  <span class="p">});</span>
+</code></pre></div>
 <p>by declaring dependencies in an array, it forces the minifier to not change the name of the params and keep the Dependency Injection working.</p>
 
-<h3 id="the-scope-object">The $scope object</h3>
+<h3>The $scope object</h3>
 
 <p><code>$scope</code> is fundamental in Angular 1.X, it is an injectable object. The view access to the data via <code>$scope</code>. Whenever you try to interpolate something with the double curly braces <code>{{ }}</code>. Angular is going to look in <code>$scope</code> properties.</p>
 
 <p>myCtrl.js : </p>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">)</span>
-<span class="lineno">2</span>   <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;myCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">3</span>     <span class="nx">$scope</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;John&quot;</span><span class="p">;</span> <span class="c1">// $scope.name is accessible from the view</span>
-<span class="lineno">4</span>   <span class="p">});</span></code></pre></div>
-
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myApp'</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'myCtrl'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">"John"</span><span class="p">;</span> <span class="c1">// $scope.name is accessible from the view</span>
+  <span class="p">});</span>
+</code></pre></div>
 <p>my-view.html :</p>
-
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno">1</span> <span class="nt">&lt;html</span> <span class="na">ng-app=</span><span class="s">&quot;myApp&quot;</span><span class="nt">&gt;</span>
-<span class="lineno">2</span>     <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&quot;MyCtrl&quot;</span><span class="nt">&gt;</span>
-<span class="lineno">3</span>       <span class="nt">&lt;p&gt;</span>{{name}}<span class="nt">&lt;/p&gt;</span> <span class="c">&lt;!-- displays &quot;John&quot; --&gt;</span>
-<span class="lineno">4</span>     <span class="nt">&lt;/div&gt;</span>
-<span class="lineno">5</span>   <span class="nt">&lt;/html&gt;</span></code></pre></div>
-
-<h3 id="services">Services</h3>
+<div class="highlight"><pre><code class="language-html" data-lang="html">  <span class="nt">&lt;html</span> <span class="na">ng-app=</span><span class="s">"myApp"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">"MyCtrl"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>{{name}}<span class="nt">&lt;/p&gt;</span> <span class="c">&lt;!-- displays "John" --&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<h3>Services</h3>
 
 <p>Service are objects that lets you share code across your app. You can <em>inject</em> services into controllers.</p>
 
 <p>You are more likely to use services when you want to re-use function across your app, i.e : you probably want to use services to fetch data from an API.</p>
 
-<p>You can create a service with a “factory”. A factory is a way to create services,  Like this : </p>
+<p>You can create a service with a &quot;factory&quot;. A factory is a way to create services,  Like this : </p>
 
 <p>myService.js :</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myApp'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">factory</span><span class="p">(</span><span class="s1">'myService'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="kd">function</span> <span class="nx">sayHi</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">'Hi !'</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="kd">function</span> <span class="nx">sayBye</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">'Bye'</span><span class="p">);</span>
+      <span class="p">}</span>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">)</span>
-<span class="lineno"> 2</span>     <span class="p">.</span><span class="nx">factory</span><span class="p">(</span><span class="s1">&#39;myService&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-<span class="lineno"> 3</span>       <span class="kd">function</span> <span class="nx">sayHi</span> <span class="p">()</span> <span class="p">{</span>
-<span class="lineno"> 4</span>         <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Hi !&#39;</span><span class="p">);</span>
-<span class="lineno"> 5</span>       <span class="p">}</span>
-<span class="lineno"> 6</span>       <span class="kd">function</span> <span class="nx">sayBye</span> <span class="p">()</span> <span class="p">{</span>
-<span class="lineno"> 7</span>         <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Bye&#39;</span><span class="p">);</span>
-<span class="lineno"> 8</span>       <span class="p">}</span>
-<span class="lineno"> 9</span>     
-<span class="lineno">10</span>     <span class="k">return</span> <span class="p">{</span>
-<span class="lineno">11</span>       <span class="nx">sayHi</span><span class="o">:</span> <span class="nx">sayHi</span><span class="p">,</span>
-<span class="lineno">12</span>       <span class="nx">sayBye</span><span class="o">:</span> <span class="nx">sayBye</span>
-<span class="lineno">13</span>     <span class="p">}</span>  
-<span class="lineno">14</span>   <span class="p">});</span></code></pre></div>
-
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">sayHi</span><span class="p">:</span> <span class="nx">sayHi</span><span class="p">,</span>
+      <span class="na">sayBye</span><span class="p">:</span> <span class="nx">sayBye</span>
+    <span class="p">}</span>  
+  <span class="p">});</span>
+</code></pre></div>
 <p>You can then use them into differents controller </p>
 
 <p>mySecondCtrl.js : </p>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">)</span>
-<span class="lineno">2</span>   <span class="c1">// myService is &quot;injected&quot; in mySecondCtrl</span>
-<span class="lineno">3</span>   <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;mySecondCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">myService</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">4</span>     <span class="nx">myService</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">();</span> <span class="c1">// fires sayHi() in myService</span>
-<span class="lineno">5</span>   <span class="p">});</span></code></pre></div>
-
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myApp'</span><span class="p">)</span>
+  <span class="c1">// myService is "injected" in mySecondCtrl</span>
+  <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'mySecondCtrl'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">myService</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">myService</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">();</span> <span class="c1">// fires sayHi() in myService</span>
+  <span class="p">});</span>
+</code></pre></div>
 <p>myCtrl.js : </p>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">)</span>
-<span class="lineno">2</span>   <span class="c1">// myService is &quot;injected&quot; in mySecondCtrl</span>
-<span class="lineno">3</span>   <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;myCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">myService</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">4</span>     <span class="nx">myService</span><span class="p">.</span><span class="nx">sayBye</span><span class="p">();</span> <span class="c1">// fires sayBye() in myService</span>
-<span class="lineno">5</span>   <span class="p">});</span></code></pre></div>
-
-<h3 id="directives">Directives</h3>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myApp'</span><span class="p">)</span>
+  <span class="c1">// myService is "injected" in mySecondCtrl</span>
+  <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'myCtrl'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">myService</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">myService</span><span class="p">.</span><span class="nx">sayBye</span><span class="p">();</span> <span class="c1">// fires sayBye() in myService</span>
+  <span class="p">});</span>
+</code></pre></div>
+<h3>Directives</h3>
 
 <p>Angular provides many built-in directives, you will have to discover them through <a href="https://docs.angularjs.org/api">Angular Offical Documentation</a> and learn how they work. </p>
 
-<p>An example of commonly used directive is <code>ng-repeat</code>, if you want to iterate and display each elements of an array. You should use the directive <code>ng-repeat</code> that let you iterate through an array attached to <code>$scope.collection</code>. The syntax is : <code>ng-repeat="item in collection"</code> . Inside the element that contains the directive <code>ng-repeat</code> let you access <code>item</code>  like in the following fiddle :</p>
+<p>An example of commonly used directive is <code>ng-repeat</code>, if you want to iterate and display each elements of an array. You should use the directive <code>ng-repeat</code> that let you iterate through an array attached to <code>$scope.collection</code>. The syntax is : <code>ng-repeat=&quot;item in collection&quot;</code> . Inside the element that contains the directive <code>ng-repeat</code> let you access <code>item</code>  like in the following fiddle :</p>
 
-<iframe width="100%" height="300" src="//jsfiddle.net/vnctaing/wambs075/4/embedded/html,js,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<p><iframe width="100%" height="300" src="//jsfiddle.net/vnctaing/wambs075/4/embedded/html,js,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe></p>
 
-<h3 id="custom-directives">Custom Directives</h3>
+<h3>Custom Directives</h3>
 
 <p>Last but not least, in Angular you can create your own directives. It lets you create small, independant and re-usable components. Basically you will able to create a custom tag <code>&lt;sign-up-form&gt;&lt;/sign-up-form&gt;</code> and display it anywhere in your app. This makes the HTML more expressive. You will have to name your directive in <a href="https://en.wikipedia.org/wiki/CamelCase">camelCase</a> , but you will have to call it in your template in <a href="https://fr.wikipedia.org/wiki/Snake_case">snake-case</a>.
 To create a custom directive :</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myApp'</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">directive</span><span class="p">(</span><span class="s1">'myDirective'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="na">restrict</span><span class="p">:</span> <span class="s1">'E'</span><span class="p">,</span> <span class="c1">// E stand for element, it will let you create &lt;custom-element&gt;&lt;/custom-element&gt;</span>
+    <span class="c1">// A stands for attributes, it will let you create &lt;div custom-attributes&gt;&lt;/div&gt;</span>
+    <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'path/to/your/template.html'</span><span class="p">,</span> 
+    <span class="na">link</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">element</span><span class="p">,</span> <span class="nx">attributes</span><span class="p">){</span>
+      <span class="c1">// put logic in here. i.e : </span>
+      <span class="nx">scope</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">"Foobar"</span><span class="p">;</span> <span class="c1">// name will be available inside the directive</span>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">)</span>
-<span class="lineno"> 2</span> <span class="p">.</span><span class="nx">directive</span><span class="p">(</span><span class="s1">&#39;myDirective&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<span class="lineno"> 3</span>   <span class="k">return</span> <span class="p">{</span>
-<span class="lineno"> 4</span>     <span class="nx">restrict</span><span class="o">:</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="c1">// E stand for element, it will let you create &lt;custom-element&gt;&lt;/custom-element&gt;</span>
-<span class="lineno"> 5</span>     <span class="c1">// A stands for attributes, it will let you create &lt;div custom-attributes&gt;&lt;/div&gt;</span>
-<span class="lineno"> 6</span>     <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;path/to/your/template.html&#39;</span><span class="p">,</span> 
-<span class="lineno"> 7</span>     <span class="nx">link</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">element</span><span class="p">,</span> <span class="nx">attributes</span><span class="p">){</span>
-<span class="lineno"> 8</span>       <span class="c1">// put logic in here. i.e : </span>
-<span class="lineno"> 9</span>       <span class="nx">scope</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Foobar&quot;</span><span class="p">;</span> <span class="c1">// name will be available inside the directive</span>
-<span class="lineno">10</span> 
-<span class="lineno">11</span>     <span class="p">},</span>
-<span class="lineno">12</span>     <span class="nx">scope</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// can be true, false or {}. </span>
-<span class="lineno">13</span>     <span class="c1">// Let you set up if your directive has access to his parents scope.</span>
-<span class="lineno">14</span>     <span class="c1">// For now, set it to true, once you will be familiar with creating custom directive</span>
-<span class="lineno">15</span>     <span class="c1">// I sugggest you to read this very good article about scope :</span>
-<span class="lineno">16</span>     <span class="c1">// http://www.undefinednull.com/2014/02/11/mastering-the-scope-of-a-directive-in-angularjs/</span>
-<span class="lineno">17</span>   <span class="p">}</span>
-<span class="lineno">18</span>   <span class="p">}</span>
-<span class="lineno">19</span> <span class="p">})</span></code></pre></div>
-
+    <span class="p">},</span>
+    <span class="na">scope</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// can be true, false or {}. </span>
+    <span class="c1">// Let you set up if your directive has access to his parents scope.</span>
+    <span class="c1">// For now, set it to true, once you will be familiar with creating custom directive</span>
+    <span class="c1">// I sugggest you to read this very good article about scope :</span>
+    <span class="c1">// http://www.undefinednull.com/2014/02/11/mastering-the-scope-of-a-directive-in-angularjs/</span>
+  <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div>
 <p>Once you created your directive you will be able to call it in your template : </p>
-
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno">1</span> <span class="nt">&lt;my-directive&gt;&lt;/my-directive&gt;</span></code></pre></div>
-
-<h3 id="conclusion">Conclusion</h3>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;my-directive&gt;&lt;/my-directive&gt;</span>
+</code></pre></div>
+<h3>Conclusion</h3>
 
 <ul>
-  <li>Two way data binding is the synchronisation between the view and the $scope.</li>
-  <li>Controller are the logic behind the view and associate data to the $scope object</li>
-  <li>$scope object is what let you access data from your template</li>
-  <li>Service lets you share code globally across your app</li>
-  <li>Directives are powerful component inside the template that be used for anything</li>
-  <li>Dependy Injection is a magically handled by Angular for resolving dependency</li>
+<li>Two way data binding is the synchronisation between the view and the $scope.</li>
+<li>Controller are the logic behind the view and associate data to the $scope object</li>
+<li>$scope object is what let you access data from your template</li>
+<li>Service lets you share code globally across your app</li>
+<li>Directives are powerful component inside the template that be used for anything</li>
+<li>Dependy Injection is a magically handled by Angular for resolving dependency</li>
 </ul>
 
 <p>I wanted to describe briefly the features that I judged fundamental, Angular comes with many more features. I recommend you to follow the very good <a href="https://docs.angularjs.org/api">Angular</a> doc to know more about them. I hope this helped you to have an overview of Angular.</p>

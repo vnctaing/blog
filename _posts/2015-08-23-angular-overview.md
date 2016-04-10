@@ -3,7 +3,6 @@ layout: post
 title: A quick overview of Angular.js
 ---
 
-
 ## Introduction
 _I've been working in a startup called Bandsquare, for 6 months and we used Angular.js in our projects. I've learned Angular from scratch. I think I had the time to explore and experiment the principles features in Angular._ 
 
@@ -81,57 +80,57 @@ Controllers are the logic behind a View. Each view is associated to a controller
 
 my-view.html : 
 
-{% highlight html linenos %}
-<html ng-app="myApp">
-  <div ng-controller="myCtrl">
-  </div>
-</html>
-{% endhighlight %}
+```html
+  <html ng-app="myApp">
+    <div ng-controller="myCtrl">
+    </div>
+  </html>
+```
 
 myCtrl.js :
 
-{% highlight javascript linenos %}
-angular.module('myApp')
-  .controller('myCtrl', function () {
+```javascript
+  angular.module('myApp')
+    .controller('myCtrl', function () {
 
-});
-{% endhighlight %}
+  });
+```
 `ng-app` is a directive to limit and name your angular app, everything inside the ng-app can be accessed with Angular. Here, the name of the app is `myApp`.
 
 ### Dependency Injection
 
 > **Dependency Injection** is a software design pattern, that let you declare every dependencies needed a part from your component and makes it available in the component. In Angular you simply declare the name of the component and Angular makes the dependency available for you. Angular is going to parse your function and find the component associate to the parsed parameter.
 
-{% highlight javascript linenos %}
+```javascript
 // firstDependency is a dependency that I use somewhere else in the app
 angular.module('myApp')
   .controller('myCtrl', function (firstDependency,secondDependency) {
    // I can use firstDependency.doSomething() since it's injected in the controller
   });
-{% endhighlight %}
+```
 
 Note : If you minify your javascript ( and you should ), there is a dirty hack to do. You have to declare your dependencies like this 
 
 > Minification is the process of removing all unnecessary characters from source code without changing its functionality
 
 
-{% highlight javascript linenos %}
+```javascript
 angular.module('myApp')
   .controller('myCtrl', ['firstDependency', 'secondDependency',
    function (firstDependency,secondDependency) {
      
   ]})
-{% endhighlight %}
+```
 
 
 That is because in order to save space, minifiers change the name of function params like this :
 
-{% highlight javascript linenos %}
+```javascript
 angular.module('myApp')
   .controller('c', function (a,b) {
    //  a.doSomething() => undefined, there is no dependency called 'a'
   });
-{% endhighlight %}
+```
 
 by declaring dependencies in an array, it forces the minifier to not change the name of the params and keep the Dependency Injection working.
 
@@ -142,22 +141,22 @@ by declaring dependencies in an array, it forces the minifier to not change the 
 
 myCtrl.js : 
 
-{% highlight javascript linenos %}
+```javascript 
 angular.module('myApp')
   .controller('myCtrl', function ($scope) {
     $scope.name = "John"; // $scope.name is accessible from the view
   });
-{% endhighlight %}
+```
 
 my-view.html :
 
-{% highlight html linenos %}
+```html 
   <html ng-app="myApp">
     <div ng-controller="MyCtrl">
       {% raw %}<p>{{name}}</p>{% endraw %} <!-- displays "John" -->
     </div>
   </html>
-{% endhighlight %}
+```
 
 ### Services
 
@@ -172,7 +171,7 @@ You can create a service with a "factory". A factory is a way to create services
 
 myService.js :
 
-{% highlight javascript linenos %}
+```javascript
   angular.module('myApp')
     .factory('myService', function () {
       function sayHi () {
@@ -187,29 +186,29 @@ myService.js :
       sayBye: sayBye
     }  
   });
-{% endhighlight %}
+```
 
 You can then use them into differents controller 
 
 mySecondCtrl.js : 
 
-{% highlight javascript linenos %}
+```javascript
 angular.module('myApp')
   // myService is "injected" in mySecondCtrl
   .controller('mySecondCtrl', function ($scope, myService) {
     myService.sayHi(); // fires sayHi() in myService
   });
-{% endhighlight %}
+```
 
 myCtrl.js : 
 
-{% highlight javascript linenos %}
+```javascript
 angular.module('myApp')
   // myService is "injected" in mySecondCtrl
   .controller('myCtrl', function ($scope, myService) {
     myService.sayBye(); // fires sayBye() in myService
   });
-{% endhighlight %}
+```
 
 ### Directives
 
@@ -226,7 +225,7 @@ Last but not least, in Angular you can create your own directives. It lets you c
 To create a custom directive :
 
 
-{% highlight javascript linenos %}
+```javascript
 angular.module('myApp')
 .directive('myDirective', function() {
   return {
@@ -246,13 +245,13 @@ angular.module('myApp')
   }
   }
 })
-{% endhighlight %}
+```
 
 Once you created your directive you will be able to call it in your template : 
 
-{% highlight html linenos %}
+```html
 <my-directive></my-directive>
-{% endhighlight %}
+```
 
 
 ### Conclusion

@@ -1,18 +1,18 @@
 ---
 layout: post
-title: React.js: just an another hype JavaScript framework ?
+title: React.js just an another hype JavaScript framework ?
+feature-img: "img/react.jpg"
 ---
 
 
 *React v.15.x has been just released (cuz fuck semver, we are Facebook.). I saw an opportunity to explain what is React. Few months back, I started programming and heard about React. I asked on Reddit : [Why React is awesome](https://www.reddit.com/r/javascript/comments/3hs4io/why_react_is_awesome/).*
 
-# React.js: just an another hype JavaScript framework ? written by a junior dev
 
 *TL;DR : If you are starting to develop a complex app, React might be a painkiller for you and your team.*
 
 React is a popular library that let your create reusable component in JavaScript, it was open-sourced by Facebook in 2013, since then it got a lot of popularity. But isn't it just an other hype framework ? 
 
-## How is it different from other JavaScript Framework ?
+# How is it different from other JavaScript Framework ?
 
 
 ### Other JavaScript frameworks
@@ -20,7 +20,9 @@ Currently frameworks are trying to give expressiveness to the DOM.
 
 i.e : With Angular 1.xx ( apparently it changes in version 2.xx ) 
 
-`<div ng-repeat="friend in friends | filter:searchText">` 
+```html
+<div ng-repeat="friend in friends | filter:searchText">
+```
 
 With this approach,the `<div>` is becoming *smart enough* to render a list of friends based on a function. This is not the role of the View ( V, of MVC). It is supposed to only represent the data model, nothing more.
 
@@ -28,7 +30,7 @@ With this approach,the `<div>` is becoming *smart enough* to render a list of fr
 
 I haven't seen any quicker or simpler explanation for React than [@danneu](https://www.reddit.com/r/javascript/comments/3hs4io/why_react_is_awesome/#thing_t1_cua60al)'s : 
 
->React is simple. It's kinda like render(data) -> UI
+>React is simple. It's kinda like `render(data) -> UI`
 
 You simply give data to a function and it renders the view. If the data change, the view *reacts* to it and modifies the least DOM nodes possible, thanks to its diff algorithm.
 
@@ -44,7 +46,7 @@ Some people will say : comparing Angular/Ember and React, is like comparing appl
 
 Yes. React is a library whereas Angular/Ember are frameworks. But if you take an app built with the React ecosystem vs an app built with Angular/Ember, you can definitely compare them. 
 
-## Virtues of React
+# Virtues of React
 
 ### A solid and healhty tree structure
 **React makes your app more *simple* but it does not mean it will be *easier* to build.**
@@ -72,7 +74,7 @@ EcmaScript 5 is yesterday's JavaScript. If you haven't heard about EcmaScript 6/
 Developping native app is also possible with React Native. Unfortunately, I haven't had the occasion to try this but keep in mind it is possible to write **native app** ( not cross-platform ) in JavaScript with React Native. Just keep in mind that the core of React let you write mobile app. 
 
 
-## React will come at a price (and headaches )
+# React will come at a price (and headaches )
 
 ### You might not need to simplify your app
 Don't forget that React was initially built by Facebook for Facebook's problem. If your app is simple enough to be run on something that requires a smaller learning curve, don't use React. 
