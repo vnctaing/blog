@@ -47,19 +47,35 @@ Yes. React is a library whereas Angular/Ember are frameworks. But if you take an
 
 # Virtues of React
 
-### A solid and healhty tree structure
+### A solid and healhty tree structure to render your UI
 **React makes your app more *simple* but it does not mean it will be *easier* to build.**
 
 It is probably not obvious to see React's qualities until you have to maintain an Angular or jQuery spaghetti app where you have plenty of source of truths, where the model can be modified by anybody from the view...
 
 React.js lets you structure your app like a tree/pyramid, the data is updated at the top and is passed to leaf-components to the bottom. Which is simpler to understand and easier to maintain, since a component is only linked to its parents and not to his brother or his third uncle... In this case, you are more likely to end up with an app like that with Angular or jQuery.
 
-Two-way data binding is a bad concept. Few years ago, it was magic, you could create a to-do app really fast, your view and model were synced. But quickly we realize when the app becomes more complexe, this kind of data flow makes your app hard to maintain. Imagine if anybody can modify the view, it modifies also your model, but you forgot that a model depended on your modified model and you will find yourself ( or not, which is worse ) that your created unexpected effects. This is how to start to a spaghetti code.
+```html
+<SmartComponent>
+    <DumbComponent foo={this.state.foo}/>
+    <SecondDumComponent bar={this.state.bar}/>
+</SmartComponent>
+```
+
+Two-way data binding is a bad concept. Few years ago, it appeared magic, creating a to-do app was really easy, your view and model were synced. But quickly we realize when the app becomes more complexe, this kind of data flow makes your app hard to maintain. Imagine if anybody can modify the view, it modifies also your model, but you forgot that a model depended on your modified model and you will find yourself ( or not, which is worse ) that your created unexpected effects. This is how to start to a spaghetti code.
 
 With the pyramid structure, **the events go up and the data flows down** in this way your app will look much more simpler.
 
 ### It is just javascript, easy to test and predictable
 React components are just a function that renders the DOM, you pass data to it and React will generate the DOM accordingly to it. You only have to worry on how to feed these React component with the good data. Since it is just about functions, it makes very easy and predictable to test an input and an output. Even the JSX syntax inside React Component, that *imitates* HTML syntax to let your write HTML inside JavaScript, is just plain JavaScript.
+
+```javascript
+//This is JSX, it looks like HTML but it is only syntactic sugar for JavaScript
+const Component = (props) => <div><h1>Hello World</h1></div> 
+```
+
+### Virtual DOM making it fast
+
+The principle feature of React is its Virtual DOM, instead of having to deal with the actual DOM. React is basically telling you : "Fuck the DOM API, here's a nice API to deal with in JavaScript". When a change is detected, React runs a diff algorithm on the virtual DOM that detects in which node are affected and labeled them as 'dirty'. Then it calculates the minimum action needed on the DOM to reflects the data provided. And finally it mutates the actual DOM nodes. It is more efficient than the dirty-checking and digest loop, which kills the performances because it is constantly watching if a change hasn't been made on the DOM.
 
 ### Learn about functionnal programming
 The React ecosystem encourages you to learn a lot about functionnal programming. It will make you a better programmer by seeing a new paradigm, in terms of architectures, logic and syntax of your code.

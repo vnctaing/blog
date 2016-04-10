@@ -5,7 +5,7 @@
     <atom:link href="http://blog.vnctaing.com/feed.xml" rel="self" type="application/rss+xml"/>
     <link>http://blog.vnctaing.com/</link>
     <description>Coding is cooking</description>
-    <pubDate>Sun, 10 Apr 2016 23:45:56 +0200</pubDate>
+    <pubDate>Mon, 11 Apr 2016 01:41:26 +0200</pubDate>
     
       <item>
         <title>React.js just an another hype JavaScript framework ?</title>
@@ -54,21 +54,31 @@
 
 &lt;h1&gt;Virtues of React&lt;/h1&gt;
 
-&lt;h3&gt;A solid and healhty tree structure&lt;/h3&gt;
+&lt;h3&gt;A solid and healhty tree structure to render your UI&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;React makes your app more &lt;em&gt;simple&lt;/em&gt; but it does not mean it will be &lt;em&gt;easier&lt;/em&gt; to build.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;It is probably not obvious to see React&amp;#39;s qualities until you have to maintain an Angular or jQuery spaghetti app where you have plenty of source of truths, where the model can be modified by anybody from the view...&lt;/p&gt;
 
 &lt;p&gt;React.js lets you structure your app like a tree/pyramid, the data is updated at the top and is passed to leaf-components to the bottom. Which is simpler to understand and easier to maintain, since a component is only linked to its parents and not to his brother or his third uncle... In this case, you are more likely to end up with an app like that with Angular or jQuery.&lt;/p&gt;
-
-&lt;p&gt;Two-way data binding is a bad concept. Few years ago, it was magic, you could create a to-do app really fast, your view and model were synced. But quickly we realize when the app becomes more complexe, this kind of data flow makes your app hard to maintain. Imagine if anybody can modify the view, it modifies also your model, but you forgot that a model depended on your modified model and you will find yourself ( or not, which is worse ) that your created unexpected effects. This is how to start to a spaghetti code.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;SmartComponent&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;DumbComponent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;foo=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;{this.state.foo}/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;SecondDumComponent&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;bar=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;{this.state.bar}/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/SmartComponent&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Two-way data binding is a bad concept. Few years ago, it appeared magic, creating a to-do app was really easy, your view and model were synced. But quickly we realize when the app becomes more complexe, this kind of data flow makes your app hard to maintain. Imagine if anybody can modify the view, it modifies also your model, but you forgot that a model depended on your modified model and you will find yourself ( or not, which is worse ) that your created unexpected effects. This is how to start to a spaghetti code.&lt;/p&gt;
 
 &lt;p&gt;With the pyramid structure, &lt;strong&gt;the events go up and the data flows down&lt;/strong&gt; in this way your app will look much more simpler.&lt;/p&gt;
 
 &lt;h3&gt;It is just javascript, easy to test and predictable&lt;/h3&gt;
 
 &lt;p&gt;React components are just a function that renders the DOM, you pass data to it and React will generate the DOM accordingly to it. You only have to worry on how to feed these React component with the good data. Since it is just about functions, it makes very easy and predictable to test an input and an output. Even the JSX syntax inside React Component, that &lt;em&gt;imitates&lt;/em&gt; HTML syntax to let your write HTML inside JavaScript, is just plain JavaScript.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//This is JSX, it looks like HTML but it is only syntactic sugar for JavaScript&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Hello&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;World&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/h1&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Virtual DOM making it fast&lt;/h3&gt;
+
+&lt;p&gt;The principle feature of React is its Virtual DOM, instead of having to deal with the actual DOM. React is basically telling you : &amp;quot;Fuck the DOM API, here&amp;#39;s a nice API to deal with in JavaScript&amp;quot;. When a change is detected, React runs a diff algorithm on the virtual DOM that detects in which node are affected and labeled them as &amp;#39;dirty&amp;#39;. Then it calculates the minimum action needed on the DOM to reflects the data provided. And finally it mutates the actual DOM nodes. It is more efficient than the dirty-checking and digest loop, which kills the performances because it is constantly watching if a change hasn&amp;#39;t been made on the DOM.&lt;/p&gt;
 
 &lt;h3&gt;Learn about functionnal programming&lt;/h3&gt;
 
