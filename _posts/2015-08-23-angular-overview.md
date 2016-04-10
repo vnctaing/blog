@@ -4,12 +4,12 @@ title: A quick overview of Angular.js
 ---
 
 
-##Introduction
+## Introduction
 _I've been working in a startup called Bandsquare, for 6 months and we used Angular.js in our projects. I've learned Angular from scratch. I think I had the time to explore and experiment the principles features in Angular._ 
 
 
 
-###Classic side-server & Single-Page Application
+### Classic side-server & Single-Page Application
 
 Angular lets you create SPA ( Single Page Application ). If you are already familiar with Single page app you can skip that part. 
 
@@ -136,7 +136,7 @@ angular.module('myApp')
 by declaring dependencies in an array, it forces the minifier to not change the name of the params and keep the Dependency Injection working.
 
 
-###The $scope object
+### The $scope object
 
 `$scope` is fundamental in Angular 1.X, it is an injectable object. The view access to the data via `$scope`. Whenever you try to interpolate something with the double curly braces ```{% raw %}{{ }}{% endraw %}```. Angular is going to look in `$scope` properties.
 
