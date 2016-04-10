@@ -89,12 +89,12 @@ EcmaScript 5 is yesterday's JavaScript. If you haven't heard about EcmaScript 6/
 Developping native app is also possible with React Native. Unfortunately, I haven't had the occasion to try this but keep in mind it is possible to write **native app** ( not cross-platform ) in JavaScript with React Native.
 
 
-# React will come at a price (and headaches )
+# React will come at a price (and headaches)
 
 ### You might not need to simplify your app
 Don't forget that React was initially built by Facebook for Facebook's problem. If your app is simple enough to be run on something that requires a smaller learning curve, don't use React. 
 
-### Migrating and learning takes time ( and money )
+### Migrating and learning takes time (and money)
 
 Since it is a whole new paradigm, you and your team will probably not have the time to learn bunch of concepts before starting to be productive.
 
