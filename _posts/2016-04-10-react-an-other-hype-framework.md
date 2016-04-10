@@ -1,7 +1,6 @@
 ---
 layout: post
 title: React.js just an another hype JavaScript framework ?
-feature-img: "img/react.jpg"
 ---
 
 
