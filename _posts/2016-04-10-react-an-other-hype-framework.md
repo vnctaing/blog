@@ -92,7 +92,7 @@ Developping native app is also possible with React Native. Unfortunately, I have
 # React will come at a price (and headaches)
 
 ### You might not need to simplify your app
-Don't forget that React was initially built by Facebook for Facebook's problem. If your app is simple enough to be run on something that requires a smaller learning curve, don't use React. 
+Don't forget that React was initially built by Facebook for Facebook's problem. If your app is simple enough to be run on something that requires a smaller learning curve, don't use React. Some unknown guy from ex-Google, created something a small library just like React called [vue.js](https://vuejs.org/). We use it at work, it is pretty nice and easy. You should check the docs and try it. I recommend not to use its two-data-binding features and use event communication instead.
 
 ### Migrating and learning takes time (and money)
 
@@ -111,7 +111,7 @@ The SEO often matters. React is really popular, because it is possible to have s
 
 ## Conclusion
 
-React had a lot of hype from the differents community, fairly because it is powered by Facebook. Nonetheless React is a significant solution to make your app simplier. The learning curve is pretty high since there is a whole new paradigm to learn. At the end of the day, if you don't feel the need to use React, well nothing force you to use it.
+React had a lot of hype from the differents communities, fairly because it is powered by Facebook. Nonetheless React is a significant solution to make your app simplier. The learning curve is pretty high since there is a whole new paradigm to learn. If you app start to scale and gain in complexity at some point it will be worth the investment. For curious developers, many major companies has adopted React in production, that skill is pretty well demanded in job. At the end of the day, if you don't feel the need to use React, well nothing force you to use it.
 
 
 
