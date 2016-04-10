@@ -54,7 +54,7 @@ It is probably not obvious to see React's qualities until you have to maintain a
 
 React.js lets you structure your app like a tree/pyramid, the data is updated at the top and is passed to leaf-components to the bottom. Which is simpler to understand and easier to maintain, since a component is only linked to its parents and not to his brother or his third uncle... In this case, you are more likely to end up with an app like that with Angular or jQuery.
 
-Two-way data binding is a bad concept. Few years ago, it was magic, you could create a to-do app really fast, your view and model were synced. But quickly we realize when the app becomes more complexe, this kind of data flow makes your app hard to maintain. Imagine if anybody can modify the view, it modifies also your model, but you forgot that a model depended on your modified model and you will find yourself ( or not, which is worse ) that your created unexpected effects. That is a beginning to a hell maintenance.
+Two-way data binding is a bad concept. Few years ago, it was magic, you could create a to-do app really fast, your view and model were synced. But quickly we realize when the app becomes more complexe, this kind of data flow makes your app hard to maintain. Imagine if anybody can modify the view, it modifies also your model, but you forgot that a model depended on your modified model and you will find yourself ( or not, which is worse ) that your created unexpected effects. This is how to start to a spaghetti code.
 
 With the pyramid structure, **the events go up and the data flows down** in this way your app will look much more simpler.
 
@@ -66,11 +66,11 @@ The React ecosystem encourages you to learn a lot about functionnal programming.
 
 ### ES6/ES2015 is strongly recommended
 
-EcmaScript 5 is yesterday's JavaScript. If you haven't heard about EcmaScript 6/ES2015/Harmony ( basically the biggest update of web ), you definitely have to [learn about it](https://developer.mozilla.org/en/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla). It is possible to write a React App with ES5, but I strongly recommend you to write your app in ES6, since it was officially approved. Almost every docs (oddly not Facebook's) assume that you are running on Babel to write ES6.
+EcmaScript 5 is yesterday's JavaScript. If you haven't heard about EcmaScript 6/ES2015/Harmony ( basically the biggest update of web ), you definitely have to [learn about it](https://developer.mozilla.org/en/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla). It is possible to write a React App with ES5, but I strongly recommend you to write your app in ES6, since it was officially approved. Almost every docs (oddly not Facebook's) assume that you are running on Babel and writting ES6.
 
 ### Dev mobile is possible
 
-Developping native app is also possible with React Native. Unfortunately, I haven't had the occasion to try this but keep in mind it is possible to write **native app** ( not cross-platform ) in JavaScript with React Native. Just keep in mind that the core of React let you write mobile app. 
+Developping native app is also possible with React Native. Unfortunately, I haven't had the occasion to try this but keep in mind it is possible to write **native app** ( not cross-platform ) in JavaScript with React Native.
 
 
 # React will come at a price (and headaches )
@@ -90,14 +90,12 @@ As a newbie, I also had so much pain before getting a 'Hello World' ( many hours
 
 
 ### Server-side rendering is painful
-The SEO often matters. React is really popular, because it is possible to have server-side rendering, which makes your website crawlable by Google bots. But Server-side rendering but from what I learned it is still not an obvious task.
- 
-At the end of the day, if you don't feel the need to use React, well nothing force you to use it.
+The SEO often matters. React is really popular, because it is possible to have server-side rendering, which makes your website crawlable by Google bots. But server-side rendering but from what I heard, is still not an obvious task.
 
 
 ## Conclusion
 
-React had a lot of hype from the differents community, fairly because it is powered by Facebook. Nonetheless React is a significant solution to make your app simplier. The learning curve is pretty high since there is a whole new paradigm to learn. If you are not willing
+React had a lot of hype from the differents community, fairly because it is powered by Facebook. Nonetheless React is a significant solution to make your app simplier. The learning curve is pretty high since there is a whole new paradigm to learn. At the end of the day, if you don't feel the need to use React, well nothing force you to use it.
 
 
 

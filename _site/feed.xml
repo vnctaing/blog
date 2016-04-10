@@ -5,7 +5,7 @@
     <atom:link href="http://blog.vnctaing.com/feed.xml" rel="self" type="application/rss+xml"/>
     <link>http://blog.vnctaing.com/</link>
     <description>Coding is cooking</description>
-    <pubDate>Sun, 10 Apr 2016 23:34:48 +0200</pubDate>
+    <pubDate>Sun, 10 Apr 2016 23:45:56 +0200</pubDate>
     
       <item>
         <title>React.js just an another hype JavaScript framework ?</title>
@@ -62,7 +62,7 @@
 
 &lt;p&gt;React.js lets you structure your app like a tree/pyramid, the data is updated at the top and is passed to leaf-components to the bottom. Which is simpler to understand and easier to maintain, since a component is only linked to its parents and not to his brother or his third uncle... In this case, you are more likely to end up with an app like that with Angular or jQuery.&lt;/p&gt;
 
-&lt;p&gt;Two-way data binding is a bad concept. Few years ago, it was magic, you could create a to-do app really fast, your view and model were synced. But quickly we realize when the app becomes more complexe, this kind of data flow makes your app hard to maintain. Imagine if anybody can modify the view, it modifies also your model, but you forgot that a model depended on your modified model and you will find yourself ( or not, which is worse ) that your created unexpected effects. That is a beginning to a hell maintenance.&lt;/p&gt;
+&lt;p&gt;Two-way data binding is a bad concept. Few years ago, it was magic, you could create a to-do app really fast, your view and model were synced. But quickly we realize when the app becomes more complexe, this kind of data flow makes your app hard to maintain. Imagine if anybody can modify the view, it modifies also your model, but you forgot that a model depended on your modified model and you will find yourself ( or not, which is worse ) that your created unexpected effects. This is how to start to a spaghetti code.&lt;/p&gt;
 
 &lt;p&gt;With the pyramid structure, &lt;strong&gt;the events go up and the data flows down&lt;/strong&gt; in this way your app will look much more simpler.&lt;/p&gt;
 
@@ -76,11 +76,11 @@
 
 &lt;h3&gt;ES6/ES2015 is strongly recommended&lt;/h3&gt;
 
-&lt;p&gt;EcmaScript 5 is yesterday&amp;#39;s JavaScript. If you haven&amp;#39;t heard about EcmaScript 6/ES2015/Harmony ( basically the biggest update of web ), you definitely have to &lt;a href=&quot;https://developer.mozilla.org/en/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla&quot;&gt;learn about it&lt;/a&gt;. It is possible to write a React App with ES5, but I strongly recommend you to write your app in ES6, since it was officially approved. Almost every docs (oddly not Facebook&amp;#39;s) assume that you are running on Babel to write ES6.&lt;/p&gt;
+&lt;p&gt;EcmaScript 5 is yesterday&amp;#39;s JavaScript. If you haven&amp;#39;t heard about EcmaScript 6/ES2015/Harmony ( basically the biggest update of web ), you definitely have to &lt;a href=&quot;https://developer.mozilla.org/en/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla&quot;&gt;learn about it&lt;/a&gt;. It is possible to write a React App with ES5, but I strongly recommend you to write your app in ES6, since it was officially approved. Almost every docs (oddly not Facebook&amp;#39;s) assume that you are running on Babel and writting ES6.&lt;/p&gt;
 
 &lt;h3&gt;Dev mobile is possible&lt;/h3&gt;
 
-&lt;p&gt;Developping native app is also possible with React Native. Unfortunately, I haven&amp;#39;t had the occasion to try this but keep in mind it is possible to write &lt;strong&gt;native app&lt;/strong&gt; ( not cross-platform ) in JavaScript with React Native. Just keep in mind that the core of React let you write mobile app. &lt;/p&gt;
+&lt;p&gt;Developping native app is also possible with React Native. Unfortunately, I haven&amp;#39;t had the occasion to try this but keep in mind it is possible to write &lt;strong&gt;native app&lt;/strong&gt; ( not cross-platform ) in JavaScript with React Native.&lt;/p&gt;
 
 &lt;h1&gt;React will come at a price (and headaches )&lt;/h1&gt;
 
@@ -100,13 +100,11 @@
 
 &lt;h3&gt;Server-side rendering is painful&lt;/h3&gt;
 
-&lt;p&gt;The SEO often matters. React is really popular, because it is possible to have server-side rendering, which makes your website crawlable by Google bots. But Server-side rendering but from what I learned it is still not an obvious task.&lt;/p&gt;
-
-&lt;p&gt;At the end of the day, if you don&amp;#39;t feel the need to use React, well nothing force you to use it.&lt;/p&gt;
+&lt;p&gt;The SEO often matters. React is really popular, because it is possible to have server-side rendering, which makes your website crawlable by Google bots. But server-side rendering but from what I heard, is still not an obvious task.&lt;/p&gt;
 
 &lt;h2&gt;Conclusion&lt;/h2&gt;
 
-&lt;p&gt;React had a lot of hype from the differents community, fairly because it is powered by Facebook. Nonetheless React is a significant solution to make your app simplier. The learning curve is pretty high since there is a whole new paradigm to learn. If you are not willing&lt;/p&gt;
+&lt;p&gt;React had a lot of hype from the differents community, fairly because it is powered by Facebook. Nonetheless React is a significant solution to make your app simplier. The learning curve is pretty high since there is a whole new paradigm to learn. At the end of the day, if you don&amp;#39;t feel the need to use React, well nothing force you to use it.&lt;/p&gt;
 </description>
         <pubDate>Sun, 10 Apr 2016 00:00:00 +0200</pubDate>
       </item>
