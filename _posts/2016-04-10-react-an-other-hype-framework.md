@@ -92,7 +92,7 @@ Developping native app is also possible with React Native. Unfortunately, I have
 # React will come at a price (and headaches)
 
 ### You might not need to simplify your app
-Don't forget that React was initially built by Facebook for Facebook's problem. If your app is simple enough to be run on something that requires a smaller learning curve, don't use React. Some unknown guy from ex-Google, created something a small library just like React called [vue.js](https://vuejs.org/). We use it at work, it is pretty nice and easy. You should check the docs and try it. I recommend not to use its two-data-binding features and use event communication instead.
+Don't forget that React was initially built by Facebook for Facebook's problem. If your app is simple enough to be run on something that requires a smaller learning curve, don't use React. I would suggest to use [vue.js](https://vuejs.org/) created by a unknown developer, ex-googler. He created a lightweight library just like React. We use it at work, it is pretty nice and easy. You should check the docs and try it. Although I recommend not to use its two-data-binding feature and use event communication instead.
 
 ### Migrating and learning takes time (and money)
 
